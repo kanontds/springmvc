@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.OldInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.OldInfo">
+    <id column="OLDID" jdbcType="DECIMAL" property="oldid" />
+    <result column="DVCODE" jdbcType="VARCHAR" property="dvcode" />
+    <result column="OLDNAME" jdbcType="VARCHAR" property="oldname" />
+    <result column="OLDCARDNUM" jdbcType="VARCHAR" property="oldcardnum" />
+    <result column="OLDTELNUM" jdbcType="VARCHAR" property="oldtelnum" />
+    <result column="HOMETOWN" jdbcType="VARCHAR" property="hometown" />
+    <result column="OLDADDRESS" jdbcType="VARCHAR" property="oldaddress" />
+    <result column="LAT" jdbcType="FLOAT" property="lat" />
+    <result column="LON" jdbcType="FLOAT" property="lon" />
+    <result column="RANGE" jdbcType="VARCHAR" property="range" />
+    <result column="OLDTIME" jdbcType="TIMESTAMP" property="oldtime" />
+    <result column="OLDSEX" jdbcType="VARCHAR" property="oldsex" />
+    <result column="OLDBIRTHDAY" jdbcType="VARCHAR" property="oldbirthday" />
+    <result column="EDUCATION" jdbcType="VARCHAR" property="education" />
+    <result column="POLITICAL" jdbcType="VARCHAR" property="political" />
+    <result column="OLDTYPE" jdbcType="VARCHAR" property="oldtype" />
+    <result column="OLDWEIGHT" jdbcType="FLOAT" property="oldweight" />
+    <result column="OLDHEIGHT" jdbcType="FLOAT" property="oldheight" />
+    <result column="MARRIAGE" jdbcType="VARCHAR" property="marriage" />
+    <result column="DISABILITY" jdbcType="VARCHAR" property="disability" />
+    <result column="LIVING" jdbcType="VARCHAR" property="living" />
+    <result column="OLDREMARK" jdbcType="VARCHAR" property="oldremark" />
+    <result column="NATION" jdbcType="VARCHAR" property="nation" />
+    <result column="SUBSIDYMONEY" jdbcType="FLOAT" property="subsidymoney" />
+    <result column="SURPLUSMONEY" jdbcType="FLOAT" property="surplusmoney" />
+    <result column="DOMICILEPLACE" jdbcType="VARCHAR" property="domicileplace" />
+    <result column="USERID" jdbcType="DECIMAL" property="userid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    OLDID, DVCODE, OLDNAME, OLDCARDNUM, OLDTELNUM, HOMETOWN, OLDADDRESS, LAT, LON, RANGE, 
+    OLDTIME, OLDSEX, OLDBIRTHDAY, EDUCATION, POLITICAL, OLDTYPE, OLDWEIGHT, OLDHEIGHT, 
+    MARRIAGE, DISABILITY, LIVING, OLDREMARK, NATION, SUBSIDYMONEY, SURPLUSMONEY, DOMICILEPLACE, 
+    USERID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from OLDINFO
+    where OLDID = #{oldid,jdbcType=DECIMAL}
+  </select>
+  <select id="selectOldinfo" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from OLDINFO
+  </select>
+  <select id="getOldinfoCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select count(*) from OLDINFO
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from OLDINFO
+    where OLDID = #{oldid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.OldInfo">
+    insert into OLDINFO (OLDID, DVCODE, OLDNAME, 
+      OLDCARDNUM, OLDTELNUM, HOMETOWN, 
+      OLDADDRESS, LAT, LON, RANGE, 
+      OLDTIME, OLDSEX, OLDBIRTHDAY, 
+      EDUCATION, POLITICAL, OLDTYPE, 
+      OLDWEIGHT, OLDHEIGHT, MARRIAGE, 
+      DISABILITY, LIVING, OLDREMARK, 
+      NATION, SUBSIDYMONEY, SURPLUSMONEY, 
+      DOMICILEPLACE, USERID)
+    values (#{oldid,jdbcType=DECIMAL}, #{dvcode,jdbcType=VARCHAR}, #{oldname,jdbcType=VARCHAR}, 
+      #{oldcardnum,jdbcType=VARCHAR}, #{oldtelnum,jdbcType=VARCHAR}, #{hometown,jdbcType=VARCHAR}, 
+      #{oldaddress,jdbcType=VARCHAR}, #{lat,jdbcType=FLOAT}, #{lon,jdbcType=FLOAT}, #{range,jdbcType=VARCHAR}, 
+      #{oldtime,jdbcType=TIMESTAMP}, #{oldsex,jdbcType=VARCHAR}, #{oldbirthday,jdbcType=VARCHAR}, 
+      #{education,jdbcType=VARCHAR}, #{political,jdbcType=VARCHAR}, #{oldtype,jdbcType=VARCHAR}, 
+      #{oldweight,jdbcType=FLOAT}, #{oldheight,jdbcType=FLOAT}, #{marriage,jdbcType=VARCHAR}, 
+      #{disability,jdbcType=VARCHAR}, #{living,jdbcType=VARCHAR}, #{oldremark,jdbcType=VARCHAR}, 
+      #{nation,jdbcType=VARCHAR}, #{subsidymoney,jdbcType=FLOAT}, #{surplusmoney,jdbcType=FLOAT}, 
+      #{domicileplace,jdbcType=VARCHAR}, #{userid,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.OldInfo">
+    insert into OLDINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oldid != null">
+        OLDID,
+      </if>
+      <if test="dvcode != null">
+        DVCODE,
+      </if>
+      <if test="oldname != null">
+        OLDNAME,
+      </if>
+      <if test="oldcardnum != null">
+        OLDCARDNUM,
+      </if>
+      <if test="oldtelnum != null">
+        OLDTELNUM,
+      </if>
+      <if test="hometown != null">
+        HOMETOWN,
+      </if>
+      <if test="oldaddress != null">
+        OLDADDRESS,
+      </if>
+      <if test="lat != null">
+        LAT,
+      </if>
+      <if test="lon != null">
+        LON,
+      </if>
+      <if test="range != null">
+        RANGE,
+      </if>
+      <if test="oldtime != null">
+        OLDTIME,
+      </if>
+      <if test="oldsex != null">
+        OLDSEX,
+      </if>
+      <if test="oldbirthday != null">
+        OLDBIRTHDAY,
+      </if>
+      <if test="education != null">
+        EDUCATION,
+      </if>
+      <if test="political != null">
+        POLITICAL,
+      </if>
+      <if test="oldtype != null">
+        OLDTYPE,
+      </if>
+      <if test="oldweight != null">
+        OLDWEIGHT,
+      </if>
+      <if test="oldheight != null">
+        OLDHEIGHT,
+      </if>
+      <if test="marriage != null">
+        MARRIAGE,
+      </if>
+      <if test="disability != null">
+        DISABILITY,
+      </if>
+      <if test="living != null">
+        LIVING,
+      </if>
+      <if test="oldremark != null">
+        OLDREMARK,
+      </if>
+      <if test="nation != null">
+        NATION,
+      </if>
+      <if test="subsidymoney != null">
+        SUBSIDYMONEY,
+      </if>
+      <if test="surplusmoney != null">
+        SURPLUSMONEY,
+      </if>
+      <if test="domicileplace != null">
+        DOMICILEPLACE,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="dvcode != null">
+        #{dvcode,jdbcType=VARCHAR},
+      </if>
+      <if test="oldname != null">
+        #{oldname,jdbcType=VARCHAR},
+      </if>
+      <if test="oldcardnum != null">
+        #{oldcardnum,jdbcType=VARCHAR},
+      </if>
+      <if test="oldtelnum != null">
+        #{oldtelnum,jdbcType=VARCHAR},
+      </if>
+      <if test="hometown != null">
+        #{hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="oldaddress != null">
+        #{oldaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=FLOAT},
+      </if>
+      <if test="lon != null">
+        #{lon,jdbcType=FLOAT},
+      </if>
+      <if test="range != null">
+        #{range,jdbcType=VARCHAR},
+      </if>
+      <if test="oldtime != null">
+        #{oldtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldsex != null">
+        #{oldsex,jdbcType=VARCHAR},
+      </if>
+      <if test="oldbirthday != null">
+        #{oldbirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null">
+        #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="oldtype != null">
+        #{oldtype,jdbcType=VARCHAR},
+      </if>
+      <if test="oldweight != null">
+        #{oldweight,jdbcType=FLOAT},
+      </if>
+      <if test="oldheight != null">
+        #{oldheight,jdbcType=FLOAT},
+      </if>
+      <if test="marriage != null">
+        #{marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="disability != null">
+        #{disability,jdbcType=VARCHAR},
+      </if>
+      <if test="living != null">
+        #{living,jdbcType=VARCHAR},
+      </if>
+      <if test="oldremark != null">
+        #{oldremark,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="subsidymoney != null">
+        #{subsidymoney,jdbcType=FLOAT},
+      </if>
+      <if test="surplusmoney != null">
+        #{surplusmoney,jdbcType=FLOAT},
+      </if>
+      <if test="domicileplace != null">
+        #{domicileplace,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.OldInfo">
+    update OLDINFO
+    <set>
+      <if test="dvcode != null">
+        DVCODE = #{dvcode,jdbcType=VARCHAR},
+      </if>
+      <if test="oldname != null">
+        OLDNAME = #{oldname,jdbcType=VARCHAR},
+      </if>
+      <if test="oldcardnum != null">
+        OLDCARDNUM = #{oldcardnum,jdbcType=VARCHAR},
+      </if>
+      <if test="oldtelnum != null">
+        OLDTELNUM = #{oldtelnum,jdbcType=VARCHAR},
+      </if>
+      <if test="hometown != null">
+        HOMETOWN = #{hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="oldaddress != null">
+        OLDADDRESS = #{oldaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        LAT = #{lat,jdbcType=FLOAT},
+      </if>
+      <if test="lon != null">
+        LON = #{lon,jdbcType=FLOAT},
+      </if>
+      <if test="range != null">
+        RANGE = #{range,jdbcType=VARCHAR},
+      </if>
+      <if test="oldtime != null">
+        OLDTIME = #{oldtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldsex != null">
+        OLDSEX = #{oldsex,jdbcType=VARCHAR},
+      </if>
+      <if test="oldbirthday != null">
+        OLDBIRTHDAY = #{oldbirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        EDUCATION = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null">
+        POLITICAL = #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="oldtype != null">
+        OLDTYPE = #{oldtype,jdbcType=VARCHAR},
+      </if>
+      <if test="oldweight != null">
+        OLDWEIGHT = #{oldweight,jdbcType=FLOAT},
+      </if>
+      <if test="oldheight != null">
+        OLDHEIGHT = #{oldheight,jdbcType=FLOAT},
+      </if>
+      <if test="marriage != null">
+        MARRIAGE = #{marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="disability != null">
+        DISABILITY = #{disability,jdbcType=VARCHAR},
+      </if>
+      <if test="living != null">
+        LIVING = #{living,jdbcType=VARCHAR},
+      </if>
+      <if test="oldremark != null">
+        OLDREMARK = #{oldremark,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        NATION = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="subsidymoney != null">
+        SUBSIDYMONEY = #{subsidymoney,jdbcType=FLOAT},
+      </if>
+      <if test="surplusmoney != null">
+        SURPLUSMONEY = #{surplusmoney,jdbcType=FLOAT},
+      </if>
+      <if test="domicileplace != null">
+        DOMICILEPLACE = #{domicileplace,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where OLDID = #{oldid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.OldInfo">
+    update OLDINFO
+    set DVCODE = #{dvcode,jdbcType=VARCHAR},
+      OLDNAME = #{oldname,jdbcType=VARCHAR},
+      OLDCARDNUM = #{oldcardnum,jdbcType=VARCHAR},
+      OLDTELNUM = #{oldtelnum,jdbcType=VARCHAR},
+      HOMETOWN = #{hometown,jdbcType=VARCHAR},
+      OLDADDRESS = #{oldaddress,jdbcType=VARCHAR},
+      LAT = #{lat,jdbcType=FLOAT},
+      LON = #{lon,jdbcType=FLOAT},
+      RANGE = #{range,jdbcType=VARCHAR},
+      OLDTIME = #{oldtime,jdbcType=TIMESTAMP},
+      OLDSEX = #{oldsex,jdbcType=VARCHAR},
+      OLDBIRTHDAY = #{oldbirthday,jdbcType=VARCHAR},
+      EDUCATION = #{education,jdbcType=VARCHAR},
+      POLITICAL = #{political,jdbcType=VARCHAR},
+      OLDTYPE = #{oldtype,jdbcType=VARCHAR},
+      OLDWEIGHT = #{oldweight,jdbcType=FLOAT},
+      OLDHEIGHT = #{oldheight,jdbcType=FLOAT},
+      MARRIAGE = #{marriage,jdbcType=VARCHAR},
+      DISABILITY = #{disability,jdbcType=VARCHAR},
+      LIVING = #{living,jdbcType=VARCHAR},
+      OLDREMARK = #{oldremark,jdbcType=VARCHAR},
+      NATION = #{nation,jdbcType=VARCHAR},
+      SUBSIDYMONEY = #{subsidymoney,jdbcType=FLOAT},
+      SURPLUSMONEY = #{surplusmoney,jdbcType=FLOAT},
+      DOMICILEPLACE = #{domicileplace,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=DECIMAL}
+    where OLDID = #{oldid,jdbcType=DECIMAL}
+  </update>
+</mapper>

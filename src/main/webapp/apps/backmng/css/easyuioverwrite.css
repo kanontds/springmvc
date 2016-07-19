@@ -1,0 +1,96 @@
+
+.datagrid-header td, .datagrid-body td, .datagrid-footer td {
+    border-bottom-style: solid;
+    border-color:  #c6e0f5;
+}
+span.error,a.error{
+    color:red;
+}
+
+
+
+.datagrid-view a:hover{
+    text-decoration: underline;
+}
+
+.datagrid-htable, .datagrid-btable, .datagrid-ftable {
+    color: gray;
+}
+.datagrid-htable{
+    color: #707070;
+}
+
+.gray7{
+    color: #707070;
+}
+
+/**调整行高**/
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber {
+    line-height: 28px;
+}
+.datagrid-cell-rownumber {
+    height: auto;
+}
+.datagrid-cell{
+    word-wrap: normal;
+
+}
+.datagrid-htable .datagrid-cell{
+    background:url('../images/tablehead.png') repeat;
+}
+
+.panel-title{
+    padding-left: 1em;
+}
+
+
+.tabs-header{
+    background-color: #cfdeeb;
+}
+
+.yewudaohang-panel-header{
+    background-color: blue;
+    background: -webkit-linear-gradient(top,#4b91e5 0,#61bdeb 100%);
+    background: -moz-linear-gradient(top,#4b91e5 0,#61bdeb 100%);
+    background: -o-linear-gradient(top,#4b91e5 0,#61bdeb 100%);
+    background: linear-gradient(to bottom,#4b91e5 0,#61bdeb 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#4b91e5,endColorstr=#61bdeb,GradientType=0);
+}
+
+.tabs-panels{
+    padding-top: 5px;
+    background-color: #9bc8e3;
+}
+
+.datagrid-toolbar{
+    background-color: #ffffff;
+}
+
+.datagrid-header{
+    border-color: #4b91e5;
+}
+.datagrid-pager{
+    border-color: #4b91e5;
+}
+
+.datagrid-row {
+    height: 32px;
+}
+
+
+.searchbox{
+border-radius: 10px;
+}
+
+.searchbox-button {
+    background: url('../images/搜索按钮.png') no-repeat center center;
+}
+.searchbox-button:hover {
+    background: url('../images/搜索按钮2.png') no-repeat center center;
+}
+
+
+.datagrid-row-selected {
+    background: rgb(234, 248, 254);
+}

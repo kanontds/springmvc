@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.MedicineInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.MedicineInfo">
+    <id column="MEDID" jdbcType="DECIMAL" property="medid" />
+    <result column="MEDNAME" jdbcType="VARCHAR" property="medname" />
+    <result column="DOSE" jdbcType="FLOAT" property="dose" />
+    <result column="HYID" jdbcType="DECIMAL" property="hyid" />
+    <result column="OLDID" jdbcType="DECIMAL" property="oldid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MEDID, MEDNAME, DOSE, HYID, OLDID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MEDICINEINFO
+    where MEDID = #{medid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from MEDICINEINFO
+    where MEDID = #{medid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.MedicineInfo">
+    insert into MEDICINEINFO (MEDID, MEDNAME, DOSE, 
+      HYID, OLDID)
+    values (#{medid,jdbcType=DECIMAL}, #{medname,jdbcType=VARCHAR}, #{dose,jdbcType=FLOAT}, 
+      #{hyid,jdbcType=DECIMAL}, #{oldid,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.MedicineInfo">
+    insert into MEDICINEINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="medid != null">
+        MEDID,
+      </if>
+      <if test="medname != null">
+        MEDNAME,
+      </if>
+      <if test="dose != null">
+        DOSE,
+      </if>
+      <if test="hyid != null">
+        HYID,
+      </if>
+      <if test="oldid != null">
+        OLDID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="medid != null">
+        #{medid,jdbcType=DECIMAL},
+      </if>
+      <if test="medname != null">
+        #{medname,jdbcType=VARCHAR},
+      </if>
+      <if test="dose != null">
+        #{dose,jdbcType=FLOAT},
+      </if>
+      <if test="hyid != null">
+        #{hyid,jdbcType=DECIMAL},
+      </if>
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.MedicineInfo">
+    update MEDICINEINFO
+    <set>
+      <if test="medname != null">
+        MEDNAME = #{medname,jdbcType=VARCHAR},
+      </if>
+      <if test="dose != null">
+        DOSE = #{dose,jdbcType=FLOAT},
+      </if>
+      <if test="hyid != null">
+        HYID = #{hyid,jdbcType=DECIMAL},
+      </if>
+      <if test="oldid != null">
+        OLDID = #{oldid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where MEDID = #{medid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.MedicineInfo">
+    update MEDICINEINFO
+    set MEDNAME = #{medname,jdbcType=VARCHAR},
+      DOSE = #{dose,jdbcType=FLOAT},
+      HYID = #{hyid,jdbcType=DECIMAL},
+      OLDID = #{oldid,jdbcType=DECIMAL}
+    where MEDID = #{medid,jdbcType=DECIMAL}
+  </update>
+</mapper>

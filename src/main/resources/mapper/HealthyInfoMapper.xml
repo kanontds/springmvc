@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.HealthyInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.HealthyInfo">
+    <id column="HID" jdbcType="DECIMAL" property="hid" />
+    <result column="OLDID" jdbcType="DECIMAL" property="oldid" />
+    <result column="HTIME" jdbcType="TIMESTAMP" property="htime" />
+    <result column="CHXT" jdbcType="FLOAT" property="chxt" />
+    <result column="KFXT" jdbcType="FLOAT" property="kfxt" />
+    <result column="GMDDGC" jdbcType="FLOAT" property="gmddgc" />
+    <result column="DMDDGC" jdbcType="FLOAT" property="dmddgc" />
+    <result column="XQJQ" jdbcType="FLOAT" property="xqjq" />
+    <result column="WLNBDB" jdbcType="FLOAT" property="wlnbdb" />
+    <result column="ZDGC" jdbcType="FLOAT" property="zdgc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HID, OLDID, HTIME, CHXT, KFXT, GMDDGC, DMDDGC, XQJQ, WLNBDB, ZDGC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HEALTHYINFO
+    where HID = #{hid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from HEALTHYINFO
+    where HID = #{hid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.HealthyInfo">
+    insert into HEALTHYINFO (HID, OLDID, HTIME, 
+      CHXT, KFXT, GMDDGC, DMDDGC, 
+      XQJQ, WLNBDB, ZDGC)
+    values (#{hid,jdbcType=DECIMAL}, #{oldid,jdbcType=DECIMAL}, #{htime,jdbcType=TIMESTAMP}, 
+      #{chxt,jdbcType=FLOAT}, #{kfxt,jdbcType=FLOAT}, #{gmddgc,jdbcType=FLOAT}, #{dmddgc,jdbcType=FLOAT}, 
+      #{xqjq,jdbcType=FLOAT}, #{wlnbdb,jdbcType=FLOAT}, #{zdgc,jdbcType=FLOAT})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.HealthyInfo">
+    insert into HEALTHYINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hid != null">
+        HID,
+      </if>
+      <if test="oldid != null">
+        OLDID,
+      </if>
+      <if test="htime != null">
+        HTIME,
+      </if>
+      <if test="chxt != null">
+        CHXT,
+      </if>
+      <if test="kfxt != null">
+        KFXT,
+      </if>
+      <if test="gmddgc != null">
+        GMDDGC,
+      </if>
+      <if test="dmddgc != null">
+        DMDDGC,
+      </if>
+      <if test="xqjq != null">
+        XQJQ,
+      </if>
+      <if test="wlnbdb != null">
+        WLNBDB,
+      </if>
+      <if test="zdgc != null">
+        ZDGC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hid != null">
+        #{hid,jdbcType=DECIMAL},
+      </if>
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="htime != null">
+        #{htime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chxt != null">
+        #{chxt,jdbcType=FLOAT},
+      </if>
+      <if test="kfxt != null">
+        #{kfxt,jdbcType=FLOAT},
+      </if>
+      <if test="gmddgc != null">
+        #{gmddgc,jdbcType=FLOAT},
+      </if>
+      <if test="dmddgc != null">
+        #{dmddgc,jdbcType=FLOAT},
+      </if>
+      <if test="xqjq != null">
+        #{xqjq,jdbcType=FLOAT},
+      </if>
+      <if test="wlnbdb != null">
+        #{wlnbdb,jdbcType=FLOAT},
+      </if>
+      <if test="zdgc != null">
+        #{zdgc,jdbcType=FLOAT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.HealthyInfo">
+    update HEALTHYINFO
+    <set>
+      <if test="oldid != null">
+        OLDID = #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="htime != null">
+        HTIME = #{htime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chxt != null">
+        CHXT = #{chxt,jdbcType=FLOAT},
+      </if>
+      <if test="kfxt != null">
+        KFXT = #{kfxt,jdbcType=FLOAT},
+      </if>
+      <if test="gmddgc != null">
+        GMDDGC = #{gmddgc,jdbcType=FLOAT},
+      </if>
+      <if test="dmddgc != null">
+        DMDDGC = #{dmddgc,jdbcType=FLOAT},
+      </if>
+      <if test="xqjq != null">
+        XQJQ = #{xqjq,jdbcType=FLOAT},
+      </if>
+      <if test="wlnbdb != null">
+        WLNBDB = #{wlnbdb,jdbcType=FLOAT},
+      </if>
+      <if test="zdgc != null">
+        ZDGC = #{zdgc,jdbcType=FLOAT},
+      </if>
+    </set>
+    where HID = #{hid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.HealthyInfo">
+    update HEALTHYINFO
+    set OLDID = #{oldid,jdbcType=DECIMAL},
+      HTIME = #{htime,jdbcType=TIMESTAMP},
+      CHXT = #{chxt,jdbcType=FLOAT},
+      KFXT = #{kfxt,jdbcType=FLOAT},
+      GMDDGC = #{gmddgc,jdbcType=FLOAT},
+      DMDDGC = #{dmddgc,jdbcType=FLOAT},
+      XQJQ = #{xqjq,jdbcType=FLOAT},
+      WLNBDB = #{wlnbdb,jdbcType=FLOAT},
+      ZDGC = #{zdgc,jdbcType=FLOAT}
+    where HID = #{hid,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,29 @@
+.picbtn {
+    display: inline-block;
+    width: 85px;
+    height: 25px;
+}
+
+
+.btn-icon-save{
+    background-image: url(../images/保存.png);
+}
+.btn-icon-cancel{
+    background-image: url(../images/取消.png);
+}
+.btn-icon-add{
+    background-image: url(../images/多文件.png);
+}
+.btn-icon-search{
+    background-image: url(../images/查询.png);
+}
+.btn-icon-gaoji-search{
+    width: 78px;
+    height: 22px;
+    display: inline-block;
+    background-image: url(../images/高级搜索.png);
+}
+
+.todo-tr{
+    height: 35px;
+}

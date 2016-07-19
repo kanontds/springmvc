@@ -1,0 +1,34 @@
+<div class="form-wrapper relative">
+<form>
+<input type="hidden" name="hid" value="<%=hid%>" >
+<input type="hidden" name="oldid" value="<%=oldid%>" >
+<table  cellpadding="2" cellspacing="1" class="form-table small">
+<tr>
+<td class="my-form-label">总胆固醇</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=zdgc%>" name="zdgc" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label">检查时间</td>
+<td><input class="my-form-input easyui-datebox" value="<%=htime%>" name="htime" data-options="required:true" ></td>
+<td class="my-form-label">餐后血糖</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=chxt%>" name="chxt" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+</tr>
+
+<tr>
+<td class="my-form-label">空腹血糖</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=kfxt%>" name="kfxt" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label">高密度胆固醇</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=gmddgc%>" name="gmddgc" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label">低密度胆固醇</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=dmddgc%>" name="dmddgc" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+</tr>
+
+<tr>
+<td class="my-form-label">血清肌酐</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=xqjq%>" name="xqjq" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label">微量尿白蛋白</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=wlnbdb%>" name="wlnbdb" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+</table>
+</form>
+    <div class="position-rb">
+        <a action="destroy" title="删除" class="destroy">&nbsp;</a><a action="save" title="保存" class="save">&nbsp;</a>
+    </div>
+</div>

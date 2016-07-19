@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.FuncInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.FuncInfo">
+    <id column="FUNCID" jdbcType="DECIMAL" property="funcid" />
+    <result column="FUNCNAME" jdbcType="VARCHAR" property="funcname" />
+    <result column="FUNCPARENTID" jdbcType="DECIMAL" property="funcparentid" />
+    <result column="LABEL" jdbcType="VARCHAR" property="label" />
+    <result column="SORTNUM" jdbcType="DECIMAL" property="sortnum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FUNCID, FUNCNAME, FUNCPARENTID, LABEL, SORTNUM
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from FUNCINFO
+    where FUNCID = #{funcid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from FUNCINFO
+    where FUNCID = #{funcid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.FuncInfo">
+    insert into FUNCINFO (FUNCID, FUNCNAME, FUNCPARENTID, 
+      LABEL, SORTNUM)
+    values (#{funcid,jdbcType=DECIMAL}, #{funcname,jdbcType=VARCHAR}, #{funcparentid,jdbcType=DECIMAL}, 
+      #{label,jdbcType=VARCHAR}, #{sortnum,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.FuncInfo">
+    insert into FUNCINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="funcid != null">
+        FUNCID,
+      </if>
+      <if test="funcname != null">
+        FUNCNAME,
+      </if>
+      <if test="funcparentid != null">
+        FUNCPARENTID,
+      </if>
+      <if test="label != null">
+        LABEL,
+      </if>
+      <if test="sortnum != null">
+        SORTNUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="funcid != null">
+        #{funcid,jdbcType=DECIMAL},
+      </if>
+      <if test="funcname != null">
+        #{funcname,jdbcType=VARCHAR},
+      </if>
+      <if test="funcparentid != null">
+        #{funcparentid,jdbcType=DECIMAL},
+      </if>
+      <if test="label != null">
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="sortnum != null">
+        #{sortnum,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.FuncInfo">
+    update FUNCINFO
+    <set>
+      <if test="funcname != null">
+        FUNCNAME = #{funcname,jdbcType=VARCHAR},
+      </if>
+      <if test="funcparentid != null">
+        FUNCPARENTID = #{funcparentid,jdbcType=DECIMAL},
+      </if>
+      <if test="label != null">
+        LABEL = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="sortnum != null">
+        SORTNUM = #{sortnum,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where FUNCID = #{funcid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.FuncInfo">
+    update FUNCINFO
+    set FUNCNAME = #{funcname,jdbcType=VARCHAR},
+      FUNCPARENTID = #{funcparentid,jdbcType=DECIMAL},
+      LABEL = #{label,jdbcType=VARCHAR},
+      SORTNUM = #{sortnum,jdbcType=DECIMAL}
+    where FUNCID = #{funcid,jdbcType=DECIMAL}
+  </update>
+</mapper>

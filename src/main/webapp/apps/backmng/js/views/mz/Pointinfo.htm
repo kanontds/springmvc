@@ -1,0 +1,47 @@
+<table class="easyui-datagrid-noauto"
+               data-options="
+                                            method:'post',
+               fit:true,
+               border:false,
+               rownumbers:true,
+               fitColumns:true,
+              pageSize:cj.getDataGridAttr('pageSize'),
+               pageList:cj.getDataGridAttr('pageList'),
+               singleSelect:false,
+               pagination:true">
+            <thead>
+            <tr>
+
+              <th data-options="field:'earthquakename',width:40,align:'center',formatter:function(v,r,i){
+                                var str='<div></div>';
+                str=$(str).append('<a title=&quot;'+new Date(r.earthquaketime).pattern('yyyy-MM-dd HH:mm')+'&quot;>'+(v||'')+'</a>');
+                return str.html();
+}">地震名称</th>
+                <th data-options="field:'username',width:40,align:'center'">用户名</th>
+<th data-options="field:'address',width:120,align:'center'">地址</th>
+<th data-options="field:'longitude',width:50,align:'center',formatter:function(v,r,i){
+                  var j=r.longitude+'';
+                  var w=r.latitude+'';
+                  return j.substr(0,j.indexOf('.')+3)+','+w.substr(0,w.indexOf('.')+3);
+
+                  }">经纬度</th>
+                <th data-options="field:'description',width:90,align:'center'">描述</th>
+                <th data-options="field:'earthquakeintensity',width:30,align:'center'">裂度</th>
+<th data-options="field:'collecttime',width:50,align:'center',formatter:function(v,r,i){return new Date(v).pattern('MM-dd HH:mm')}">采集时间</th>
+                <th data-options="field:'delete',width:70,align:'center',formatter:function(v,r,i)
+            {
+                var str='<div></div>';
+                str=$(str).append('<a action=&quot;delete&quot; class=&quot;common-simple-btn&quot;>删除</a>');
+                str=$(str).append('<a action=&quot;edit&quot; class=&quot;common-simple-btn&quot;>查看</a>');
+                return str.html();
+            }">操作</th>
+            </tr>
+            </thead>
+        </table>
+
+        <div tb>
+            <label class="gray7">搜索条件:</label>
+            <input class="easyui-searchbox" data-options="prompt:'名称'"
+                   type="keyword" style="width:200px" >
+            <!--<a opt="addpointinfo" class="opiconbg"><span><span class="icon-user icon-pl16">新增采集信息</span></span></a>-->
+        </div>

@@ -1,0 +1,17 @@
+<div class="form-wrapper relative">
+    <form>
+<input type="hidden" name="medid" value="<%=medid%>" >
+<input type="hidden" name="hyid" value="<%=hyid%>" >
+<input type="hidden" name="oldid" value="<%=oldid%>" >
+<table  cellpadding="2" cellspacing="1" class="form-table small">
+<tr>
+<td class="my-form-label">药物名称</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=medname%>" name="medname" data-options="required:true,validType:{'maxLength':['20']}" ></td>
+<td class="my-form-label">剂量</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=dose%>" name="dose" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+</table>
+</form>
+    <div class="position-rb">
+        <a action="destroy" title="删除" class="destroy">&nbsp;</a><a action="save" title="保存" class="save">&nbsp;</a>
+    </div>
+</div>

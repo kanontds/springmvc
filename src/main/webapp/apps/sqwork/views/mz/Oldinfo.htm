@@ -1,0 +1,128 @@
+<div class="big-body">
+    <div class="big-header">
+        <a class="current-title">新增客户信息</a><span class="shuxian"></span>
+        <a action="OldReport" class="current-title-brother">健康报表信息</a>
+        <a action="close" class="current-title-close">X</a>
+    </div>
+    <div class="big-content">
+
+    <form method="post" name="oldinfo">
+        <input type="hidden" name="oldid"  >
+<input type="hidden" name="dvcode"  >
+<table  cellpadding="4" cellspacing="1" class="form-table">
+    <tr>
+
+<td class="my-form-label">姓名</td>
+<td><input class="my-form-input easyui-validatebox"  name="oldname" data-options="required:true,validType:{'maxLength':['25']}" ></td>
+<td class="my-form-label">性别</td>
+<td><input class="my-form-input easyui-combobox"  name="oldsex" data-options="required:false,data:cj.getEnum('enu007'),panelHeight:'auto',readonly:true" ></td>
+<td class="my-form-label">出生日期</td>
+<td><input class="my-form-input easyui-datebox"  name="oldbirthday" data-options="required:false,validType:{'maxLength':['25']},readonly:true" ></td>
+</tr>
+    <tr>
+<td class="my-form-label">身份证号码</td>
+<td><input class="my-form-input easyui-validatebox" name="oldcardnum" opt="oldcardnum"
+           data-options="required:true,validType:{'maxLength':['18'],oldcardnum_exist:[],isCardNum:[]}" >
+    </td>
+<td class="my-form-label">联系电话</td>
+<td><input class="my-form-input easyui-validatebox"  name="oldtelnum" data-options="required:true,validType:{'maxLength':['11']}" ></td>
+<td class="my-form-label">籍贯</td>
+<td><input class="my-form-input easyui-validatebox"  name="hometown" data-options="required:false,validType:{'maxLength':['50']}" ></td>
+</tr>
+
+<tr>
+<td class="my-form-label">户籍所在地</td>
+<td><input class="my-form-input easyui-validatebox"  name="domicileplace" data-options="required:false,validType:{'maxLength':['50']}" ></td>
+<td class="my-form-label">民族</td>
+<td><input class="my-form-input easyui-combobox"  name="nation" data-options="required:false,data:cj.getEnum('enu027'),panelHeight:200" ></td>
+<td class="my-form-label">政治面貌</td>
+<td><input class="my-form-input easyui-combobox"  name="political" data-options="required:false,data:cj.getEnum('enu040'),panelHeight:'auto'" ></td>
+</tr>
+
+<tr>
+<td class="my-form-label">文化程序</td>
+<td><input class="my-form-input easyui-combobox"  name="education" data-options="required:false,data:cj.getEnum('enu011'),panelHeight:'auto'" ></td>
+<td class="my-form-label">体重</td>
+<td><input class="my-form-input easyui-validatebox"  name="oldweight" data-options="required:false,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label">身高</td>
+<td><input class="my-form-input easyui-validatebox"  name="oldheight" data-options="required:false,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+</tr>
+<tr>
+<td class="my-form-label">婚姻状况</td>
+<td><input class="my-form-input easyui-combobox"  name="marriage" data-options="required:false,data:cj.getEnum('enu009'),panelHeight:'auto'" ></td>
+<td class="my-form-label">是否残疾</td>
+<td><input class="my-form-input easyui-combobox"  name="disability" data-options="required:false,data:cj.getEnum('enu037'),panelHeight:'auto'" ></td>
+<td class="my-form-label">居住状态**</td>
+<td><input class="my-form-input easyui-combobox"  name="living" data-options="required:false,data:cj.getEnum('enu004'),panelHeight:'auto'" ></td>
+</tr>
+
+<tr>
+<td class="my-form-label">客户类型</td>
+<td><input class="my-form-input easyui-combobox"  name="oldtype" data-options="required:false,data:cj.getEnum('enu041'),panelHeight:'auto'" ></td>
+<td class="my-form-label">入库时间</td>
+<td><input class="my-form-input easyui-datetimebox"  name="oldtime" data-options="required:true" ></td>
+<td class="my-form-label">备注</td>
+<td><input class="my-form-input easyui-validatebox"  name="oldremark" data-options="required:false,validType:{'maxLength':['100']}" ></td>
+</tr>
+<tr>
+<td class="my-form-label">每月补助金额</td>
+<td><input class="my-form-input easyui-validatebox"  name="subsidymoney" data-options="required:false,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label">剩余金额</td>
+<td><input class="my-form-input easyui-validatebox"  name="surplusmoney" data-options="required:false,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label"></td>
+<td>
+    <div class="my-ditu-position">
+        <input style="width:88px;"
+        class="my-form-input easyui-validatebox"  name="lon" data-options="required:false,validType:{'isNumeric':[],'maxLength':['22']}" >
+        <label>经度</label>
+    </div>
+</td>
+</tr>
+<tr>
+    <td class="my-form-label">家庭地址</td>
+<td colspan="3" opt="division">
+    <input opt="d1" style="width:100px;">
+        <input opt="d2" style="width:100px;">
+        <input opt="d3" style="width:100px;">
+    <input opt="d4" style="width:100px;">
+    <a action="caiyong" class="pointer-underline">采用</a>
+
+</td>
+<td class="my-form-label"></td>
+<td>
+    <div class="my-ditu-position">
+        <input style="width:88px;"
+        class="my-form-input easyui-validatebox"  name="lat" data-options="required:false,validType:{'isNumeric':[],'maxLength':['22']}" >
+        <label>纬度</label>
+    </div>
+</td>
+</tr>
+<tr>
+<td class="my-form-label"></td>
+<td colspan="3"><input class="my-form-input easyui-validatebox" style="width:90%;"
+                       name="oldaddress" data-options="required:false,validType:{'maxLength':['50']}" ></td>
+<td></td>
+    <td>
+        <div class="my-ditu-position">
+            <a opt="ditu-position" class="pointer-underline tool-dituweizhi">地图位置</a>
+        </div>
+    </td>
+</tr>
+
+</table>
+   </form>
+
+    <div name="contactsinfo-area">
+
+    </div>
+    </div>
+
+</div>
+
+<div style="padding: 40px;
+    background:url(images/common/table-background.png);
+    text-align: center;">
+<a class="tool-save" action="save">保存</a>
+</div>
+
+<!--<div class="form-bottom-bar" btns="cj.button.Mo(['close','关闭'],['save','保存','save'])"></div>-->

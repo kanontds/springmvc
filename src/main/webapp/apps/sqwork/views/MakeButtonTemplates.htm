@@ -1,0 +1,48 @@
+
+
+@@test1
+<% _.each(children,function(item,index){ %>
+<a action="<%=item.text%>"><%=item.text%></a>
+<% }) %>
+
+  @@test2
+<a >test2</a>
+
+  @@test3
+
+  <a >test</a>
+@@TouMing
+<ul class="pretty-buttons">
+<% _.each(children,function(item,index){ %>
+<li action="<%=item.action%>"><a class="opiconbg"><span><span class="icon-pl16 icon-<%=item.icon%>"><%=item.text%></span></span></a></li>
+<% }) %>
+</ul>
+
+@@OnlyIcon
+<ul class="pretty-buttons">
+<% _.each(children,function(item,index){ %>
+<li action="<%=item.action%>" title="<%=item.text%>"><a><span><span class="icon-pl16 icon-<%=item.icon%>">&nbsp;</span></span></a></li>
+<% }) %>
+</ul>
+
+@@OnlyText
+<ul class="pretty-buttons">
+<% _.each(children,function(item,index){ %>
+<li action="<%=item.action%>"><a class="only-text"><%=item.text%></a></li>
+<% }) %>
+</ul>
+
+
+@@RoundText
+<ul class="pretty-buttons">
+<% _.each(children,function(item,index){ %>
+<li action="<%=item.action%>"><a class="round-text round-text-<%=item.icon%>"><%=item.text%></a></li>
+<% }) %>
+</ul>
+
+@@Mo
+<ul class="pretty-buttons">
+<% _.each(children,function(item,index){ %>
+<li action="<%=item.action%>"><a class="mo-ren"><%=item.text%></a></li>
+<% }) %>
+</ul>

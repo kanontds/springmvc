@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.WorkInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.WorkInfo">
+    <id column="WID" jdbcType="VARCHAR" property="wid" />
+    <result column="WADDRESS" jdbcType="VARCHAR" property="waddress" />
+    <result column="OLDID" jdbcType="DECIMAL" property="oldid" />
+    <result column="WCONTENT" jdbcType="VARCHAR" property="wcontent" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="USERID" jdbcType="DECIMAL" property="userid" />
+    <result column="ORDERTIME" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="WPTID" jdbcType="VARCHAR" property="wptid" />
+    <result column="WTID" jdbcType="VARCHAR" property="wtid" />
+    <result column="OLDNAME" jdbcType="VARCHAR" property="oldname" />
+    <result column="OLDTELNUM" jdbcType="VARCHAR" property="oldtelnum" />
+    <result column="ADDSH" jdbcType="VARCHAR" property="addsh" />
+    <result column="ADDS" jdbcType="VARCHAR" property="adds" />
+    <result column="ADDX" jdbcType="VARCHAR" property="addx" />
+    <result column="ADDJD" jdbcType="VARCHAR" property="addjd" />
+    <result column="WLON" jdbcType="FLOAT" property="wlon" />
+    <result column="WLAT" jdbcType="FLOAT" property="wlat" />
+    <result column="ACCEPNAME" jdbcType="VARCHAR" property="accepname" />
+    <result column="ACCEPTIME" jdbcType="TIMESTAMP" property="acceptime" />
+    <result column="ORGNAME" jdbcType="VARCHAR" property="orgname" />
+    <result column="ASSTIME" jdbcType="TIMESTAMP" property="asstime" />
+    <result column="ORGID" jdbcType="DECIMAL" property="orgid" />
+    <result column="EVALUATE" jdbcType="FLOAT" property="evaluate" />
+    <result column="VISITCONTENT" jdbcType="VARCHAR" property="visitcontent" />
+    <result column="VISITTIME" jdbcType="TIMESTAMP" property="visittime" />
+    <result column="PRICE" jdbcType="FLOAT" property="price" />
+    <result column="IID" jdbcType="DECIMAL" property="iid" />
+    <result column="URGENT" jdbcType="VARCHAR" property="urgent" />
+    <result column="WTIME" jdbcType="TIMESTAMP" property="wtime" />
+    <result column="OLDTYPE" jdbcType="VARCHAR" property="oldtype" />
+    <result column="DVCODE" jdbcType="VARCHAR" property="dvcode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    WID, WADDRESS, OLDID, WCONTENT, STATUS, USERID, ORDERTIME, WPTID, WTID, OLDNAME, 
+    OLDTELNUM, ADDSH, ADDS, ADDX, ADDJD, WLON, WLAT, ACCEPNAME, ACCEPTIME, ORGNAME, ASSTIME, 
+    ORGID, EVALUATE, VISITCONTENT, VISITTIME, PRICE, IID, URGENT, WTIME, OLDTYPE, DVCODE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from WORKINFO
+    where WID = #{wid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from WORKINFO
+    where WID = #{wid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.WorkInfo">
+    insert into WORKINFO (WID, WADDRESS, OLDID, 
+      WCONTENT, STATUS, USERID, 
+      ORDERTIME, WPTID, WTID, 
+      OLDNAME, OLDTELNUM, ADDSH, 
+      ADDS, ADDX, ADDJD, 
+      WLON, WLAT, ACCEPNAME, 
+      ACCEPTIME, ORGNAME, ASSTIME, 
+      ORGID, EVALUATE, VISITCONTENT, 
+      VISITTIME, PRICE, IID, 
+      URGENT, WTIME, OLDTYPE, 
+      DVCODE)
+    values (#{wid,jdbcType=VARCHAR}, #{waddress,jdbcType=VARCHAR}, #{oldid,jdbcType=DECIMAL}, 
+      #{wcontent,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{userid,jdbcType=DECIMAL}, 
+      #{ordertime,jdbcType=TIMESTAMP}, #{wptid,jdbcType=VARCHAR}, #{wtid,jdbcType=VARCHAR}, 
+      #{oldname,jdbcType=VARCHAR}, #{oldtelnum,jdbcType=VARCHAR}, #{addsh,jdbcType=VARCHAR}, 
+      #{adds,jdbcType=VARCHAR}, #{addx,jdbcType=VARCHAR}, #{addjd,jdbcType=VARCHAR}, 
+      #{wlon,jdbcType=FLOAT}, #{wlat,jdbcType=FLOAT}, #{accepname,jdbcType=VARCHAR}, 
+      #{acceptime,jdbcType=TIMESTAMP}, #{orgname,jdbcType=VARCHAR}, #{asstime,jdbcType=TIMESTAMP}, 
+      #{orgid,jdbcType=DECIMAL}, #{evaluate,jdbcType=FLOAT}, #{visitcontent,jdbcType=VARCHAR}, 
+      #{visittime,jdbcType=TIMESTAMP}, #{price,jdbcType=FLOAT}, #{iid,jdbcType=DECIMAL}, 
+      #{urgent,jdbcType=VARCHAR}, #{wtime,jdbcType=TIMESTAMP}, #{oldtype,jdbcType=VARCHAR}, 
+      #{dvcode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.WorkInfo">
+    insert into WORKINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wid != null">
+        WID,
+      </if>
+      <if test="waddress != null">
+        WADDRESS,
+      </if>
+      <if test="oldid != null">
+        OLDID,
+      </if>
+      <if test="wcontent != null">
+        WCONTENT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="ordertime != null">
+        ORDERTIME,
+      </if>
+      <if test="wptid != null">
+        WPTID,
+      </if>
+      <if test="wtid != null">
+        WTID,
+      </if>
+      <if test="oldname != null">
+        OLDNAME,
+      </if>
+      <if test="oldtelnum != null">
+        OLDTELNUM,
+      </if>
+      <if test="addsh != null">
+        ADDSH,
+      </if>
+      <if test="adds != null">
+        ADDS,
+      </if>
+      <if test="addx != null">
+        ADDX,
+      </if>
+      <if test="addjd != null">
+        ADDJD,
+      </if>
+      <if test="wlon != null">
+        WLON,
+      </if>
+      <if test="wlat != null">
+        WLAT,
+      </if>
+      <if test="accepname != null">
+        ACCEPNAME,
+      </if>
+      <if test="acceptime != null">
+        ACCEPTIME,
+      </if>
+      <if test="orgname != null">
+        ORGNAME,
+      </if>
+      <if test="asstime != null">
+        ASSTIME,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="evaluate != null">
+        EVALUATE,
+      </if>
+      <if test="visitcontent != null">
+        VISITCONTENT,
+      </if>
+      <if test="visittime != null">
+        VISITTIME,
+      </if>
+      <if test="price != null">
+        PRICE,
+      </if>
+      <if test="iid != null">
+        IID,
+      </if>
+      <if test="urgent != null">
+        URGENT,
+      </if>
+      <if test="wtime != null">
+        WTIME,
+      </if>
+      <if test="oldtype != null">
+        OLDTYPE,
+      </if>
+      <if test="dvcode != null">
+        DVCODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wid != null">
+        #{wid,jdbcType=VARCHAR},
+      </if>
+      <if test="waddress != null">
+        #{waddress,jdbcType=VARCHAR},
+      </if>
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="wcontent != null">
+        #{wcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wptid != null">
+        #{wptid,jdbcType=VARCHAR},
+      </if>
+      <if test="wtid != null">
+        #{wtid,jdbcType=VARCHAR},
+      </if>
+      <if test="oldname != null">
+        #{oldname,jdbcType=VARCHAR},
+      </if>
+      <if test="oldtelnum != null">
+        #{oldtelnum,jdbcType=VARCHAR},
+      </if>
+      <if test="addsh != null">
+        #{addsh,jdbcType=VARCHAR},
+      </if>
+      <if test="adds != null">
+        #{adds,jdbcType=VARCHAR},
+      </if>
+      <if test="addx != null">
+        #{addx,jdbcType=VARCHAR},
+      </if>
+      <if test="addjd != null">
+        #{addjd,jdbcType=VARCHAR},
+      </if>
+      <if test="wlon != null">
+        #{wlon,jdbcType=FLOAT},
+      </if>
+      <if test="wlat != null">
+        #{wlat,jdbcType=FLOAT},
+      </if>
+      <if test="accepname != null">
+        #{accepname,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptime != null">
+        #{acceptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgname != null">
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="asstime != null">
+        #{asstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=DECIMAL},
+      </if>
+      <if test="evaluate != null">
+        #{evaluate,jdbcType=FLOAT},
+      </if>
+      <if test="visitcontent != null">
+        #{visitcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="visittime != null">
+        #{visittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=FLOAT},
+      </if>
+      <if test="iid != null">
+        #{iid,jdbcType=DECIMAL},
+      </if>
+      <if test="urgent != null">
+        #{urgent,jdbcType=VARCHAR},
+      </if>
+      <if test="wtime != null">
+        #{wtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldtype != null">
+        #{oldtype,jdbcType=VARCHAR},
+      </if>
+      <if test="dvcode != null">
+        #{dvcode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.WorkInfo">
+    update WORKINFO
+    <set>
+      <if test="waddress != null">
+        WADDRESS = #{waddress,jdbcType=VARCHAR},
+      </if>
+      <if test="oldid != null">
+        OLDID = #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="wcontent != null">
+        WCONTENT = #{wcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="ordertime != null">
+        ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wptid != null">
+        WPTID = #{wptid,jdbcType=VARCHAR},
+      </if>
+      <if test="wtid != null">
+        WTID = #{wtid,jdbcType=VARCHAR},
+      </if>
+      <if test="oldname != null">
+        OLDNAME = #{oldname,jdbcType=VARCHAR},
+      </if>
+      <if test="oldtelnum != null">
+        OLDTELNUM = #{oldtelnum,jdbcType=VARCHAR},
+      </if>
+      <if test="addsh != null">
+        ADDSH = #{addsh,jdbcType=VARCHAR},
+      </if>
+      <if test="adds != null">
+        ADDS = #{adds,jdbcType=VARCHAR},
+      </if>
+      <if test="addx != null">
+        ADDX = #{addx,jdbcType=VARCHAR},
+      </if>
+      <if test="addjd != null">
+        ADDJD = #{addjd,jdbcType=VARCHAR},
+      </if>
+      <if test="wlon != null">
+        WLON = #{wlon,jdbcType=FLOAT},
+      </if>
+      <if test="wlat != null">
+        WLAT = #{wlat,jdbcType=FLOAT},
+      </if>
+      <if test="accepname != null">
+        ACCEPNAME = #{accepname,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptime != null">
+        ACCEPTIME = #{acceptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgname != null">
+        ORGNAME = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="asstime != null">
+        ASSTIME = #{asstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=DECIMAL},
+      </if>
+      <if test="evaluate != null">
+        EVALUATE = #{evaluate,jdbcType=FLOAT},
+      </if>
+      <if test="visitcontent != null">
+        VISITCONTENT = #{visitcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="visittime != null">
+        VISITTIME = #{visittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="price != null">
+        PRICE = #{price,jdbcType=FLOAT},
+      </if>
+      <if test="iid != null">
+        IID = #{iid,jdbcType=DECIMAL},
+      </if>
+      <if test="urgent != null">
+        URGENT = #{urgent,jdbcType=VARCHAR},
+      </if>
+      <if test="wtime != null">
+        WTIME = #{wtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oldtype != null">
+        OLDTYPE = #{oldtype,jdbcType=VARCHAR},
+      </if>
+      <if test="dvcode != null">
+        DVCODE = #{dvcode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where WID = #{wid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.WorkInfo">
+    update WORKINFO
+    set WADDRESS = #{waddress,jdbcType=VARCHAR},
+      OLDID = #{oldid,jdbcType=DECIMAL},
+      WCONTENT = #{wcontent,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=DECIMAL},
+      ORDERTIME = #{ordertime,jdbcType=TIMESTAMP},
+      WPTID = #{wptid,jdbcType=VARCHAR},
+      WTID = #{wtid,jdbcType=VARCHAR},
+      OLDNAME = #{oldname,jdbcType=VARCHAR},
+      OLDTELNUM = #{oldtelnum,jdbcType=VARCHAR},
+      ADDSH = #{addsh,jdbcType=VARCHAR},
+      ADDS = #{adds,jdbcType=VARCHAR},
+      ADDX = #{addx,jdbcType=VARCHAR},
+      ADDJD = #{addjd,jdbcType=VARCHAR},
+      WLON = #{wlon,jdbcType=FLOAT},
+      WLAT = #{wlat,jdbcType=FLOAT},
+      ACCEPNAME = #{accepname,jdbcType=VARCHAR},
+      ACCEPTIME = #{acceptime,jdbcType=TIMESTAMP},
+      ORGNAME = #{orgname,jdbcType=VARCHAR},
+      ASSTIME = #{asstime,jdbcType=TIMESTAMP},
+      ORGID = #{orgid,jdbcType=DECIMAL},
+      EVALUATE = #{evaluate,jdbcType=FLOAT},
+      VISITCONTENT = #{visitcontent,jdbcType=VARCHAR},
+      VISITTIME = #{visittime,jdbcType=TIMESTAMP},
+      PRICE = #{price,jdbcType=FLOAT},
+      IID = #{iid,jdbcType=DECIMAL},
+      URGENT = #{urgent,jdbcType=VARCHAR},
+      WTIME = #{wtime,jdbcType=TIMESTAMP},
+      OLDTYPE = #{oldtype,jdbcType=VARCHAR},
+      DVCODE = #{dvcode,jdbcType=VARCHAR}
+    where WID = #{wid,jdbcType=VARCHAR}
+  </update>
+</mapper>

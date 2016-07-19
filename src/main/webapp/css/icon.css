@@ -1,0 +1,247 @@
+ul.pretty-buttons
+{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+
+}
+ul.pretty-buttons li
+{
+    display:inline;
+    list-style-type:none;
+
+}
+
+ul.pretty-buttons li a,
+ul.pretty-buttons li a:visited
+                           {
+                               cursor: pointer;
+                               text-decoration: none;
+                           }
+
+/*以上为按钮行的基本样式*/
+
+a.opiconbg  {
+    display: inline-block;
+    font-size: 13px;
+    color: #444444;
+    padding-left: 3px;
+    padding-right: 2px;
+    cursor:pointer;
+    line-height: 22px;
+    height: 22px;
+    background:url(../images/pension01/opbtnbg2lnm.png) no-repeat left top;
+}
+
+a.opiconbg>span {
+    display: block;
+    padding-right: 6px;
+    padding-left: 3px;
+    line-height: 22px;
+    height: 22px;
+    background:url(../images/pension01/opbtnbg2rnm.png) no-repeat right top;
+}
+a.opiconbg:hover{
+    background:url(../images/pension01/opbtnbg2l.png) no-repeat left top;
+}
+a.opiconbg>span:hover{
+    background:url(../images/pension01/opbtnbg2r.png) no-repeat right top;
+
+}
+/**************word icon and round end********************/
+/**************word icon and round start********************/
+a.opiconbgnil  {
+    display: inline-block;
+    font-size: 13px;
+    color: #444444;
+    padding-left: 3px;
+    padding-right: 2px;
+    cursor:pointer;
+    line-height: 22px;
+    height: 22px;
+
+}
+
+a.opiconbgnil>span {
+    display: block;
+    padding-right: 6px;
+    padding-left: 3px;
+    line-height: 22px;
+    height: 22px;
+
+}
+
+a.opiconbgnil:hover{
+
+}
+a.opiconbgnil>span:hover{
+
+}
+/**************圆角有图标按钮定义结束********************/
+
+
+/*16像素图标*/
+.icon-pl16{
+    padding-left: 18px;
+    display: inline-block;
+}
+
+
+.icon-excel{
+    background:url('../images/pension01icon/xls.png') left center no-repeat;
+
+}
+.icon-processbtn{
+    background:url('../images/pension01icon/process.png') left center no-repeat;
+
+}
+.icon-save{
+    background:url('../images/pension01icon/save.gif') left center no-repeat;
+
+}
+.icon-save2{
+    background:url('../images/pension01icon/save2.png') left center no-repeat;
+
+}
+.icon-log{
+    background:url('../images/pension01icon/mylog.gif') left center no-repeat;
+
+}
+.icon-remove{
+    background:url('../images/pension01icon/remove.gif') left center no-repeat;
+
+}
+.icon-add{
+    background:url('../images/pension01icon/add.gif') left center  no-repeat;
+
+}
+.icon-search{
+    background:url('../images/pension01icon/search.gif') left center no-repeat;
+
+}
+.icon-cancel{
+    background:url('../images/pension01icon/cancel.png') left center no-repeat;
+
+}
+.icon-qingkong{
+    background:url('../images/pension01icon/qingkong.gif') left center no-repeat;
+
+}
+.icon-user{
+    background:url('../images/pension01icon/user.png') left center no-repeat;
+
+}
+.icon-group{
+    background:url('../images/pension01icon/group.png') left center no-repeat;
+
+}
+.icon-parametermng{
+    background:url('../images/pension01icon/cog_edit.png') left center no-repeat;
+
+}
+.icon-edit{
+    background:url('../images/edit.png') left center no-repeat;
+
+}
+.icon-view{
+    background:url('../images/pension01icon/application_view_tile.png') no-repeat left center;
+
+}
+.icon-trend{
+    background:url('../images/pension01icon/application_view_tile.png') no-repeat left center;
+
+}
+.icon-detail{
+    background:url('../images/pension01icon/application_view_detail.png') no-repeat left center;
+
+}
+.icon-refresh{
+    background:url('../images/pension01icon/refresh.gif') no-repeat left center;
+
+}
+.icon-del{
+    background:url('../images/pension01icon/del.gif') no-repeat left center;
+
+}
+.icon-folder{
+    background:url('../images/pension01icon/folder.gif') no-repeat left center;
+
+}
+.icon-rename{
+    background:url('../images/dy/change.png') no-repeat left center;
+
+}
+.icon-addfile{
+    background:url('../images/dy/dataManage.png') no-repeat left center;
+
+}
+.icon-move{
+    background:url('../js/jqueryplugin/contextmenu/icons/book-open-list.png') no-repeat left center;
+
+}
+.icon-download{
+    background:url('../images/dy/07_03.png') no-repeat left center;
+
+}
+.icon-filedir{
+    background:url(../images/fileico_v4.png) no-repeat -896px -32px;
+
+}
+.icon-filexls{
+    background:url(../images/fileico_v4.png) no-repeat -32px 0;
+
+}
+
+.icon-filetxt{
+    background:url(../images/fileico_v4.png) no-repeat  -672px 0;
+
+}
+
+.icon-filejpg{
+    background:url(../images/fileico_v4.png) no-repeat 0 -32px;
+
+}
+
+.icon-filepng{
+    background:url(../images/fileico_v4.png) no-repeat -64px -32px;
+
+}
+.icon-filedoc{
+    background:url(../images/fileico_v4.png) no-repeat -64px 0;
+
+}
+
+.icon-nil{
+
+
+}
+
+
+/*只有文字的按钮*/
+ul.pretty-buttons li>a.only-text{
+    text-decoration: underline;
+}
+
+/*有圆角背景文字的按钮*/
+ul.pretty-buttons li>a.round-text{
+    text-decoration: underline;
+    background: #9FC5DA;
+    padding: 3px 7px;
+    border-radius: 8px;
+
+}
+
+/*默认按钮*/
+ul.pretty-buttons li>a.mo-ren{
+    text-decoration: underline;
+    background: #9FC5DA;
+    padding: 3px 5px;
+    border-radius: 20px;
+}
+/*************************************各种按钮附加样式****************************************************/
+
+/*圆角文件 自定义颜色*/
+ul.pretty-buttons li>a.round-text-trash{
+   /*color:#ff6262;*/
+}

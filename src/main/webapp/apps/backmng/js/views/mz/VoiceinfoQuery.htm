@@ -1,0 +1,40 @@
+<table class="easyui-datagrid-noauto"
+               data-options="
+               method:'post',
+               fit:true,
+               border:false,
+               rownumbers:true,
+               fitColumns:true,
+              pageSize:cj.getDataGridAttr('pageSize'),
+               pageList:cj.getDataGridAttr('pageList'),
+               singleSelect:false,
+               pagination:true">
+            <thead>
+            <tr>
+
+                <th data-options="field:'voicepath',width:100,align:'right',formatter:function(v,r,i)
+            {
+                var str='<div></div>';
+                str=$(str).append('<a action=&quot;view&quot;>'+v+'</a>');
+                return str.html();
+            }">路径</th>
+                <th data-options="field:'voicetime',width:120,align:'center'">时间</th>
+                <th data-options="field:'delete',width:100,align:'center',formatter:function(v,r,i)
+            {
+                var str='<div></div>';
+                str=$(str).append('<a action=&quot;delete&quot; class=&quot;common-simple-btn&quot;>删除</a>');
+                str=$(str).append('<a action=&quot;play&quot; class=&quot;common-simple-btn&quot;>播放</a>');
+                return str.html();
+            }">操作</th>
+            </tr>
+            </thead>
+        </table>
+
+        <div tb>
+            <label class="gray7">搜索条件:</label>
+            <input class="easyui-searchbox" data-options="prompt:'名称'"
+                   type="keyword" style="width:200px" >
+            <a opt="addmsgman" class="opiconbg"><span><span class="icon-user icon-pl16">新增短信用户</span></span></a>
+        </div>
+        <audio controls="controls">
+          </audio>

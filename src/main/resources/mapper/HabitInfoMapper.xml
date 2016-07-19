@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.HabitInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.HabitInfo">
+    <id column="HABITID" jdbcType="DECIMAL" property="habitid" />
+    <result column="BLOOD" jdbcType="VARCHAR" property="blood" />
+    <result column="SMOKEYEARS" jdbcType="VARCHAR" property="smokeyears" />
+    <result column="SMOKEFREQUENCY" jdbcType="VARCHAR" property="smokefrequency" />
+    <result column="DRINKFREQUENCY" jdbcType="VARCHAR" property="drinkfrequency" />
+    <result column="DRINKTYPE" jdbcType="VARCHAR" property="drinktype" />
+    <result column="SPORTSFREQUENCY" jdbcType="VARCHAR" property="sportsfrequency" />
+    <result column="SPORTSDURATION" jdbcType="VARCHAR" property="sportsduration" />
+    <result column="SLEEPDURATION" jdbcType="VARCHAR" property="sleepduration" />
+    <result column="OLDID" jdbcType="DECIMAL" property="oldid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HABITID, BLOOD, SMOKEYEARS, SMOKEFREQUENCY, DRINKFREQUENCY, DRINKTYPE, SPORTSFREQUENCY, 
+    SPORTSDURATION, SLEEPDURATION, OLDID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HABITINFO
+    where HABITID = #{habitid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from HABITINFO
+    where HABITID = #{habitid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.HabitInfo">
+    insert into HABITINFO (HABITID, BLOOD, SMOKEYEARS, 
+      SMOKEFREQUENCY, DRINKFREQUENCY, DRINKTYPE, 
+      SPORTSFREQUENCY, SPORTSDURATION, SLEEPDURATION, 
+      OLDID)
+    values (#{habitid,jdbcType=DECIMAL}, #{blood,jdbcType=VARCHAR}, #{smokeyears,jdbcType=VARCHAR}, 
+      #{smokefrequency,jdbcType=VARCHAR}, #{drinkfrequency,jdbcType=VARCHAR}, #{drinktype,jdbcType=VARCHAR}, 
+      #{sportsfrequency,jdbcType=VARCHAR}, #{sportsduration,jdbcType=VARCHAR}, #{sleepduration,jdbcType=VARCHAR}, 
+      #{oldid,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.HabitInfo">
+    insert into HABITINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="habitid != null">
+        HABITID,
+      </if>
+      <if test="blood != null">
+        BLOOD,
+      </if>
+      <if test="smokeyears != null">
+        SMOKEYEARS,
+      </if>
+      <if test="smokefrequency != null">
+        SMOKEFREQUENCY,
+      </if>
+      <if test="drinkfrequency != null">
+        DRINKFREQUENCY,
+      </if>
+      <if test="drinktype != null">
+        DRINKTYPE,
+      </if>
+      <if test="sportsfrequency != null">
+        SPORTSFREQUENCY,
+      </if>
+      <if test="sportsduration != null">
+        SPORTSDURATION,
+      </if>
+      <if test="sleepduration != null">
+        SLEEPDURATION,
+      </if>
+      <if test="oldid != null">
+        OLDID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="habitid != null">
+        #{habitid,jdbcType=DECIMAL},
+      </if>
+      <if test="blood != null">
+        #{blood,jdbcType=VARCHAR},
+      </if>
+      <if test="smokeyears != null">
+        #{smokeyears,jdbcType=VARCHAR},
+      </if>
+      <if test="smokefrequency != null">
+        #{smokefrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="drinkfrequency != null">
+        #{drinkfrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="drinktype != null">
+        #{drinktype,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsfrequency != null">
+        #{sportsfrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsduration != null">
+        #{sportsduration,jdbcType=VARCHAR},
+      </if>
+      <if test="sleepduration != null">
+        #{sleepduration,jdbcType=VARCHAR},
+      </if>
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.HabitInfo">
+    update HABITINFO
+    <set>
+      <if test="blood != null">
+        BLOOD = #{blood,jdbcType=VARCHAR},
+      </if>
+      <if test="smokeyears != null">
+        SMOKEYEARS = #{smokeyears,jdbcType=VARCHAR},
+      </if>
+      <if test="smokefrequency != null">
+        SMOKEFREQUENCY = #{smokefrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="drinkfrequency != null">
+        DRINKFREQUENCY = #{drinkfrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="drinktype != null">
+        DRINKTYPE = #{drinktype,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsfrequency != null">
+        SPORTSFREQUENCY = #{sportsfrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsduration != null">
+        SPORTSDURATION = #{sportsduration,jdbcType=VARCHAR},
+      </if>
+      <if test="sleepduration != null">
+        SLEEPDURATION = #{sleepduration,jdbcType=VARCHAR},
+      </if>
+      <if test="oldid != null">
+        OLDID = #{oldid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where HABITID = #{habitid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.HabitInfo">
+    update HABITINFO
+    set BLOOD = #{blood,jdbcType=VARCHAR},
+      SMOKEYEARS = #{smokeyears,jdbcType=VARCHAR},
+      SMOKEFREQUENCY = #{smokefrequency,jdbcType=VARCHAR},
+      DRINKFREQUENCY = #{drinkfrequency,jdbcType=VARCHAR},
+      DRINKTYPE = #{drinktype,jdbcType=VARCHAR},
+      SPORTSFREQUENCY = #{sportsfrequency,jdbcType=VARCHAR},
+      SPORTSDURATION = #{sportsduration,jdbcType=VARCHAR},
+      SLEEPDURATION = #{sleepduration,jdbcType=VARCHAR},
+      OLDID = #{oldid,jdbcType=DECIMAL}
+    where HABITID = #{habitid,jdbcType=DECIMAL}
+  </update>
+</mapper>

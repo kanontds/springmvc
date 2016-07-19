@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.TypeInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.TypeInfo">
+    <id column="TID" jdbcType="VARCHAR" property="tid" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="TNAME" jdbcType="VARCHAR" property="tname" />
+    <result column="DEPTH" jdbcType="DECIMAL" property="depth" />
+    <result column="DVCODE" jdbcType="VARCHAR" property="dvcode" />
+    <result column="ISDEL" jdbcType="DECIMAL" property="isdel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TID, PARENTID, TNAME, DEPTH, DVCODE, ISDEL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TYPEINFO
+    where TID = #{tid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TYPEINFO
+    where TID = #{tid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.TypeInfo">
+    insert into TYPEINFO (TID, PARENTID, TNAME, 
+      DEPTH, DVCODE, ISDEL
+      )
+    values (#{tid,jdbcType=VARCHAR}, #{parentid,jdbcType=VARCHAR}, #{tname,jdbcType=VARCHAR}, 
+      #{depth,jdbcType=DECIMAL}, #{dvcode,jdbcType=VARCHAR}, #{isdel,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.TypeInfo">
+    insert into TYPEINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        TID,
+      </if>
+      <if test="parentid != null">
+        PARENTID,
+      </if>
+      <if test="tname != null">
+        TNAME,
+      </if>
+      <if test="depth != null">
+        DEPTH,
+      </if>
+      <if test="dvcode != null">
+        DVCODE,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="tname != null">
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="depth != null">
+        #{depth,jdbcType=DECIMAL},
+      </if>
+      <if test="dvcode != null">
+        #{dvcode,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.TypeInfo">
+    update TYPEINFO
+    <set>
+      <if test="parentid != null">
+        PARENTID = #{parentid,jdbcType=VARCHAR},
+      </if>
+      <if test="tname != null">
+        TNAME = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="depth != null">
+        DEPTH = #{depth,jdbcType=DECIMAL},
+      </if>
+      <if test="dvcode != null">
+        DVCODE = #{dvcode,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where TID = #{tid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.TypeInfo">
+    update TYPEINFO
+    set PARENTID = #{parentid,jdbcType=VARCHAR},
+      TNAME = #{tname,jdbcType=VARCHAR},
+      DEPTH = #{depth,jdbcType=DECIMAL},
+      DVCODE = #{dvcode,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=DECIMAL}
+    where TID = #{tid,jdbcType=VARCHAR}
+  </update>
+</mapper>

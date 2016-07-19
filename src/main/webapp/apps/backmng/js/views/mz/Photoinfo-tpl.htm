@@ -1,0 +1,24 @@
+<% _.each(children,function(item){ %>
+<li class="photoinfo-item">
+  <div class="photoinfo-img" style="width:160px;margin:0 auto;position: relative;">
+        <div class="photoinfo-menu" style="width:160px">
+      <a>查看原图</a>
+    </div>
+
+    <% if(item.adopt=='1') { %>
+    <div  style="width:60px;position:absolute;right:0;">
+      <a style="float:right;color:blue;background: url(images/yicaina.png);
+    width: 62px;
+    height: 48px;"></a>
+    </div>
+    <% } %>
+
+    <img src="eers/<%= item.thumbpath%>" width="160px" height="130px">
+  </div>
+  <div class="photoinfo-desc" id="desc<%= item.photoid%>" style="width:160px;height: 50px;margin:0 auto;">
+    <input type="checkbox" name="deleteme" value="<%= item.photoid%>" id="photoinfo-desc<%= item.photoid%>" style="vertical-align:middle;"
+           adopt="<%= item.adopt||0 %>">
+    <label for="photoinfo-desc<%= item.photoid%>" ><span><%= item.address%></span></label>
+  </div>
+</li>
+<% }) %>

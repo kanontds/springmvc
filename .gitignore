@@ -1,0 +1,15 @@
+/.idea
+/out
+/test
+/.gradle
+/target
+/classes
+/build
+*.iml
+*.jar
+*.war
+*.class
+*.1
+/src/main/webapp/WEB-INF/logs
+*.zip
+.DS_Store

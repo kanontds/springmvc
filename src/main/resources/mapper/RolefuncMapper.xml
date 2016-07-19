@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.RolefuncMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.RolefuncKey">
+    <id column="ROLEID" jdbcType="DECIMAL" property="roleid" />
+    <id column="FUNCID" jdbcType="DECIMAL" property="funcid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="cn.springmvc.model.RolefuncKey">
+    delete from ROLEFUNC
+    where ROLEID = #{roleid,jdbcType=DECIMAL}
+      and FUNCID = #{funcid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.RolefuncKey">
+    insert into ROLEFUNC (ROLEID, FUNCID)
+    values (#{roleid,jdbcType=DECIMAL}, #{funcid,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.RolefuncKey">
+    insert into ROLEFUNC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleid != null">
+        ROLEID,
+      </if>
+      <if test="funcid != null">
+        FUNCID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleid != null">
+        #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="funcid != null">
+        #{funcid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

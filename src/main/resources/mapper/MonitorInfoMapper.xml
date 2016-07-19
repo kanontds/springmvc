@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.MonitorInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.MonitorInfo">
+    <id column="MID" jdbcType="DECIMAL" property="mid" />
+    <result column="OLDID" jdbcType="DECIMAL" property="oldid" />
+    <result column="MNAME" jdbcType="VARCHAR" property="mname" />
+    <result column="NUM" jdbcType="FLOAT" property="num" />
+    <result column="MTIME" jdbcType="TIMESTAMP" property="mtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MID, OLDID, MNAME, NUM, MTIME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MONITORINFO
+    where MID = #{mid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from MONITORINFO
+    where MID = #{mid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.MonitorInfo">
+    insert into MONITORINFO (MID, OLDID, MNAME, 
+      NUM, MTIME)
+    values (#{mid,jdbcType=DECIMAL}, #{oldid,jdbcType=DECIMAL}, #{mname,jdbcType=VARCHAR}, 
+      #{num,jdbcType=FLOAT}, #{mtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.MonitorInfo">
+    insert into MONITORINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        MID,
+      </if>
+      <if test="oldid != null">
+        OLDID,
+      </if>
+      <if test="mname != null">
+        MNAME,
+      </if>
+      <if test="num != null">
+        NUM,
+      </if>
+      <if test="mtime != null">
+        MTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        #{mid,jdbcType=DECIMAL},
+      </if>
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="mname != null">
+        #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=FLOAT},
+      </if>
+      <if test="mtime != null">
+        #{mtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.MonitorInfo">
+    update MONITORINFO
+    <set>
+      <if test="oldid != null">
+        OLDID = #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="mname != null">
+        MNAME = #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null">
+        NUM = #{num,jdbcType=FLOAT},
+      </if>
+      <if test="mtime != null">
+        MTIME = #{mtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where MID = #{mid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.MonitorInfo">
+    update MONITORINFO
+    set OLDID = #{oldid,jdbcType=DECIMAL},
+      MNAME = #{mname,jdbcType=VARCHAR},
+      NUM = #{num,jdbcType=FLOAT},
+      MTIME = #{mtime,jdbcType=TIMESTAMP}
+    where MID = #{mid,jdbcType=DECIMAL}
+  </update>
+</mapper>

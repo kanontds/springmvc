@@ -1,0 +1,27 @@
+<div class="form-wrapper relative">
+    <form>
+<input type="hidden" name="diseaseid" value="<%=diseaseid%>" >
+<input type="hidden" name="oldid" value="<%=oldid%>" >
+<table  cellpadding="2" cellspacing="1" class="form-table small">
+<tr>
+<td class="my-form-label">疾病名称</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=diseasename%>" name="diseasename" data-options="required:true,validType:{'maxLength':['50']}" ></td>
+<td class="my-form-label">发生时间</td>
+<td><input class="my-form-input easyui-datebox" value="<%=begintime%>" name="begintime" data-options="required:true" ></td>
+<td class="my-form-label">结束时间</td>
+<td><input class="my-form-input easyui-datebox" value="<%=endtime%>" name="endtime" data-options="required:false" ></td>
+</tr>
+
+<tr>
+<td class="my-form-label">住院情况</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=hospitalization%>" name="hospitalization" data-options="required:false,validType:{'maxLength':['50']}" ></td>
+<td class="my-form-label">转归情况</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=outcome%>" name="outcome" data-options="required:false,validType:{'maxLength':['50']}" ></td>
+    <td></td><td></td>
+    </tr>
+</table>
+</form>
+    <div class="position-rb">
+        <a action="destroy" title="删除" class="destroy">&nbsp;</a><a action="save" title="保存" class="save">&nbsp;</a>
+    </div>
+</div>

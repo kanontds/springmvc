@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.ItemInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.ItemInfo">
+    <id column="IID" jdbcType="DECIMAL" property="iid" />
+    <result column="ORGID" jdbcType="DECIMAL" property="orgid" />
+    <result column="TID" jdbcType="VARCHAR" property="tid" />
+    <result column="PRICE" jdbcType="VARCHAR" property="price" />
+    <result column="ICONTENT" jdbcType="VARCHAR" property="icontent" />
+    <result column="ISDEL" jdbcType="DECIMAL" property="isdel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    IID, ORGID, TID, PRICE, ICONTENT, ISDEL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ITEMINFO
+    where IID = #{iid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from ITEMINFO
+    where IID = #{iid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.ItemInfo">
+    insert into ITEMINFO (IID, ORGID, TID, 
+      PRICE, ICONTENT, ISDEL
+      )
+    values (#{iid,jdbcType=DECIMAL}, #{orgid,jdbcType=DECIMAL}, #{tid,jdbcType=VARCHAR}, 
+      #{price,jdbcType=VARCHAR}, #{icontent,jdbcType=VARCHAR}, #{isdel,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.ItemInfo">
+    insert into ITEMINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="iid != null">
+        IID,
+      </if>
+      <if test="orgid != null">
+        ORGID,
+      </if>
+      <if test="tid != null">
+        TID,
+      </if>
+      <if test="price != null">
+        PRICE,
+      </if>
+      <if test="icontent != null">
+        ICONTENT,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="iid != null">
+        #{iid,jdbcType=DECIMAL},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=DECIMAL},
+      </if>
+      <if test="tid != null">
+        #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="icontent != null">
+        #{icontent,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.ItemInfo">
+    update ITEMINFO
+    <set>
+      <if test="orgid != null">
+        ORGID = #{orgid,jdbcType=DECIMAL},
+      </if>
+      <if test="tid != null">
+        TID = #{tid,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        PRICE = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="icontent != null">
+        ICONTENT = #{icontent,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where IID = #{iid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.ItemInfo">
+    update ITEMINFO
+    set ORGID = #{orgid,jdbcType=DECIMAL},
+      TID = #{tid,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=VARCHAR},
+      ICONTENT = #{icontent,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=DECIMAL}
+    where IID = #{iid,jdbcType=DECIMAL}
+  </update>
+</mapper>

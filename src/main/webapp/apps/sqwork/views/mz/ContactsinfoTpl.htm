@@ -1,0 +1,18 @@
+<div class="form-wrapper relative">
+    <form>
+<input type="hidden" name="ciid" value="<%=ciid%>" >
+<input type="hidden" name="oldid" value="<%=oldid%>" >
+<table  cellpadding="2" cellspacing="1" class="form-table small">
+<tr>
+<td class="my-form-label">联系人姓名</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=contactname%>" name="contactname" data-options="required:true,validType:{'maxLength':['25']}" ></td>
+<td class="my-form-label">联系人电话</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=contacttel%>" name="contacttel" data-options="required:true,validType:{'maxLength':['11']}" ></td>
+
+</tr>
+</table>
+</form>
+    <div class="position-rb">
+        <a action="destroy" title="删除" class="destroy">&nbsp;</a><a action="save" title="保存" class="save">&nbsp;</a>
+    </div>
+</div>

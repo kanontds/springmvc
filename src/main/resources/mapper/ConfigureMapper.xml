@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.ConfigureMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.Configure">
+    <id column="CID" jdbcType="DECIMAL" property="cid" />
+    <result column="CNAME" jdbcType="VARCHAR" property="cname" />
+    <result column="CVALUE" jdbcType="VARCHAR" property="cvalue" />
+    <result column="CIDENT" jdbcType="VARCHAR" property="cident" />
+    <result column="CSORT" jdbcType="DECIMAL" property="csort" />
+    <result column="CSTATE" jdbcType="VARCHAR" property="cstate" />
+    <result column="ISDEL" jdbcType="DECIMAL" property="isdel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CID, CNAME, CVALUE, CIDENT, CSORT, CSTATE, ISDEL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CONFIGURE
+    where CID = #{cid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from CONFIGURE
+    where CID = #{cid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.Configure">
+    insert into CONFIGURE (CID, CNAME, CVALUE, 
+      CIDENT, CSORT, CSTATE, 
+      ISDEL)
+    values (#{cid,jdbcType=DECIMAL}, #{cname,jdbcType=VARCHAR}, #{cvalue,jdbcType=VARCHAR}, 
+      #{cident,jdbcType=VARCHAR}, #{csort,jdbcType=DECIMAL}, #{cstate,jdbcType=VARCHAR}, 
+      #{isdel,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.Configure">
+    insert into CONFIGURE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        CID,
+      </if>
+      <if test="cname != null">
+        CNAME,
+      </if>
+      <if test="cvalue != null">
+        CVALUE,
+      </if>
+      <if test="cident != null">
+        CIDENT,
+      </if>
+      <if test="csort != null">
+        CSORT,
+      </if>
+      <if test="cstate != null">
+        CSTATE,
+      </if>
+      <if test="isdel != null">
+        ISDEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=DECIMAL},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="cvalue != null">
+        #{cvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="cident != null">
+        #{cident,jdbcType=VARCHAR},
+      </if>
+      <if test="csort != null">
+        #{csort,jdbcType=DECIMAL},
+      </if>
+      <if test="cstate != null">
+        #{cstate,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        #{isdel,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.Configure">
+    update CONFIGURE
+    <set>
+      <if test="cname != null">
+        CNAME = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="cvalue != null">
+        CVALUE = #{cvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="cident != null">
+        CIDENT = #{cident,jdbcType=VARCHAR},
+      </if>
+      <if test="csort != null">
+        CSORT = #{csort,jdbcType=DECIMAL},
+      </if>
+      <if test="cstate != null">
+        CSTATE = #{cstate,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null">
+        ISDEL = #{isdel,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CID = #{cid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.Configure">
+    update CONFIGURE
+    set CNAME = #{cname,jdbcType=VARCHAR},
+      CVALUE = #{cvalue,jdbcType=VARCHAR},
+      CIDENT = #{cident,jdbcType=VARCHAR},
+      CSORT = #{csort,jdbcType=DECIMAL},
+      CSTATE = #{cstate,jdbcType=VARCHAR},
+      ISDEL = #{isdel,jdbcType=DECIMAL}
+    where CID = #{cid,jdbcType=DECIMAL}
+  </update>
+</mapper>

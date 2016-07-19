@@ -1,0 +1,27 @@
+<div class="form-wrapper relative">
+<form>
+    <input type="hidden" name="heredityid" value="<%=heredityid%>" >
+<input type="hidden" name="oldid" value="<%=oldid%>" >
+<table  cellpadding="2" cellspacing="1" class="form-table small">
+<tr>
+<td class="my-form-label">高血压</td>
+<td><input class="my-form-input easyui-combobox" value="<%=hypertension%>" name="hypertension" data-options="required:true,data:cj.getEnum('enu050'),panelHeight:'auto'" ></td>
+<td class="my-form-label">高血脂</td>
+<td><input class="my-form-input easyui-combobox" value="<%=hyperlipemiars%>" name="hyperlipemiars" data-options="required:true,data:cj.getEnum('enu050'),panelHeight:'auto'" ></td>
+<td class="my-form-label">糖尿病</td>
+<td><input class="my-form-input easyui-combobox" value="<%=diabetes%>" name="diabetes" data-options="required:true,data:cj.getEnum('enu050'),panelHeight:'auto'" ></td>
+</tr>
+
+<tr>
+<td class="my-form-label">冠心病</td>
+<td><input class="my-form-input easyui-combobox" value="<%=coronary%>" name="coronary" data-options="required:true,data:cj.getEnum('enu050'),panelHeight:'auto'" ></td>
+<td class="my-form-label">脑血管意外</td>
+<td><input class="my-form-input easyui-combobox" value="<%=cerebrovascular%>" name="cerebrovascular" data-options="required:true,data:cj.getEnum('enu050'),panelHeight:'auto'" ></td>
+<td></td><td></td>
+</tr>
+</table>
+</form>
+    <div class="position-rb">
+        <a action="destroy" title="删除" class="destroy">&nbsp;</a><a action="save" title="保存" class="save">&nbsp;</a>
+    </div>
+</div>

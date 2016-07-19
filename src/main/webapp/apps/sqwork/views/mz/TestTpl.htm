@@ -1,0 +1,39 @@
+<table class="easyui-datagrid-noauto"
+       data-options="
+                       method:'get',
+                       border:false,
+                       fit:true,fitColumns:true,
+                       pageSize:50,
+                       pageList:cj.getDataGridAttr('pageList'),
+                       singleSelect:true,
+                       pagination:true">
+  <thead>
+  <tr>
+    <th data-options="field:'id',width:60,formatter:cj.enumFormatter('nation')">名称</th>
+    <th data-options="field:'name',width:60">编号</th>
+    <th data-options="field:'email',width:60">联系方式</th>
+
+    <th data-options="field:'ooo',width:60,align:'center',formatter:function(v,r,i)
+                          {
+                          var str='<div></div>';
+                          str=$(str).append('<a action=&quot;delete&quot; ><span><span >删除 </span></span></a>');
+                          str=$(str).append('<a action=&quot;set&quot; ><span><span > 设置</span></span></a>');
+                          return str.html();
+                          }">操作
+    </th>
+
+
+  </tr>
+  </thead>
+</table>
+<div tb="toolbar" style="" >
+  <input opt="sex" class="easyui-combobox lazy-combobox"
+         name="gender"
+         style="width: 100px"
+         data-options="
+                                data:cj.getEnum('gender')
+            ">
+  <input class="easyui-textbox" type="text" name="name" data-options="width:100,prompt:'名称'">
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" action="new" >新增</a>
+  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" action="yunxinglv" >查询</a>
+</div>

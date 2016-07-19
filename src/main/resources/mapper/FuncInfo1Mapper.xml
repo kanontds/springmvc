@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.FuncInfo1Mapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.FuncInfo1">
+    <result column="FUNCID" jdbcType="DECIMAL" property="funcid" />
+    <result column="FUNCNAME" jdbcType="VARCHAR" property="funcname" />
+    <result column="FUNCPARENTID" jdbcType="DECIMAL" property="funcparentid" />
+    <result column="LABEL" jdbcType="VARCHAR" property="label" />
+    <result column="SORTNUM" jdbcType="DECIMAL" property="sortnum" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.springmvc.model.FuncInfo1">
+    insert into FUNCINFO1 (FUNCID, FUNCNAME, FUNCPARENTID, 
+      LABEL, SORTNUM)
+    values (#{funcid,jdbcType=DECIMAL}, #{funcname,jdbcType=VARCHAR}, #{funcparentid,jdbcType=DECIMAL}, 
+      #{label,jdbcType=VARCHAR}, #{sortnum,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.FuncInfo1">
+    insert into FUNCINFO1
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="funcid != null">
+        FUNCID,
+      </if>
+      <if test="funcname != null">
+        FUNCNAME,
+      </if>
+      <if test="funcparentid != null">
+        FUNCPARENTID,
+      </if>
+      <if test="label != null">
+        LABEL,
+      </if>
+      <if test="sortnum != null">
+        SORTNUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="funcid != null">
+        #{funcid,jdbcType=DECIMAL},
+      </if>
+      <if test="funcname != null">
+        #{funcname,jdbcType=VARCHAR},
+      </if>
+      <if test="funcparentid != null">
+        #{funcparentid,jdbcType=DECIMAL},
+      </if>
+      <if test="label != null">
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="sortnum != null">
+        #{sortnum,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

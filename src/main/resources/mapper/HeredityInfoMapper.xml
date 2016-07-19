@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.HeredityInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.HeredityInfo">
+    <id column="HEREDITYID" jdbcType="DECIMAL" property="heredityid" />
+    <result column="HYPERTENSION" jdbcType="VARCHAR" property="hypertension" />
+    <result column="HYPERLIPEMIARS" jdbcType="VARCHAR" property="hyperlipemiars" />
+    <result column="DIABETES" jdbcType="VARCHAR" property="diabetes" />
+    <result column="CORONARY" jdbcType="VARCHAR" property="coronary" />
+    <result column="CEREBROVASCULAR" jdbcType="VARCHAR" property="cerebrovascular" />
+    <result column="OLDID" jdbcType="DECIMAL" property="oldid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HEREDITYID, HYPERTENSION, HYPERLIPEMIARS, DIABETES, CORONARY, CEREBROVASCULAR, OLDID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HEREDITYINFO
+    where HEREDITYID = #{heredityid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from HEREDITYINFO
+    where HEREDITYID = #{heredityid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.HeredityInfo">
+    insert into HEREDITYINFO (HEREDITYID, HYPERTENSION, HYPERLIPEMIARS, 
+      DIABETES, CORONARY, CEREBROVASCULAR, 
+      OLDID)
+    values (#{heredityid,jdbcType=DECIMAL}, #{hypertension,jdbcType=VARCHAR}, #{hyperlipemiars,jdbcType=VARCHAR}, 
+      #{diabetes,jdbcType=VARCHAR}, #{coronary,jdbcType=VARCHAR}, #{cerebrovascular,jdbcType=VARCHAR}, 
+      #{oldid,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.HeredityInfo">
+    insert into HEREDITYINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="heredityid != null">
+        HEREDITYID,
+      </if>
+      <if test="hypertension != null">
+        HYPERTENSION,
+      </if>
+      <if test="hyperlipemiars != null">
+        HYPERLIPEMIARS,
+      </if>
+      <if test="diabetes != null">
+        DIABETES,
+      </if>
+      <if test="coronary != null">
+        CORONARY,
+      </if>
+      <if test="cerebrovascular != null">
+        CEREBROVASCULAR,
+      </if>
+      <if test="oldid != null">
+        OLDID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="heredityid != null">
+        #{heredityid,jdbcType=DECIMAL},
+      </if>
+      <if test="hypertension != null">
+        #{hypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="hyperlipemiars != null">
+        #{hyperlipemiars,jdbcType=VARCHAR},
+      </if>
+      <if test="diabetes != null">
+        #{diabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="coronary != null">
+        #{coronary,jdbcType=VARCHAR},
+      </if>
+      <if test="cerebrovascular != null">
+        #{cerebrovascular,jdbcType=VARCHAR},
+      </if>
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.HeredityInfo">
+    update HEREDITYINFO
+    <set>
+      <if test="hypertension != null">
+        HYPERTENSION = #{hypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="hyperlipemiars != null">
+        HYPERLIPEMIARS = #{hyperlipemiars,jdbcType=VARCHAR},
+      </if>
+      <if test="diabetes != null">
+        DIABETES = #{diabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="coronary != null">
+        CORONARY = #{coronary,jdbcType=VARCHAR},
+      </if>
+      <if test="cerebrovascular != null">
+        CEREBROVASCULAR = #{cerebrovascular,jdbcType=VARCHAR},
+      </if>
+      <if test="oldid != null">
+        OLDID = #{oldid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where HEREDITYID = #{heredityid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.HeredityInfo">
+    update HEREDITYINFO
+    set HYPERTENSION = #{hypertension,jdbcType=VARCHAR},
+      HYPERLIPEMIARS = #{hyperlipemiars,jdbcType=VARCHAR},
+      DIABETES = #{diabetes,jdbcType=VARCHAR},
+      CORONARY = #{coronary,jdbcType=VARCHAR},
+      CEREBROVASCULAR = #{cerebrovascular,jdbcType=VARCHAR},
+      OLDID = #{oldid,jdbcType=DECIMAL}
+    where HEREDITYID = #{heredityid,jdbcType=DECIMAL}
+  </update>
+</mapper>

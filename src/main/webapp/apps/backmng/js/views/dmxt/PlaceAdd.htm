@@ -1,0 +1,41 @@
+<table class="easyui-datagrid-noauto"
+       data-options="singleSelect:true,
+       pagination:true,fitColumns:true,rownumbers:true,
+       method:'get'">
+    <thead>
+    <tr>
+        <th field="itemid" width="80">Item ID</th>
+        <th field="productid" width="120">Product ID</th>
+        <th field="listprice" width="80" align="right">List Price</th>
+        <th field="unitcost" width="80" align="right">Unit Cost</th>
+        <th field="attr1" width="200">Attribute</th>
+        <th field="status" width="60" align="center">Stauts</th>
+    </tr>
+    </thead>
+</table>
+<div tb>
+    <span opt="text"></span>
+    <span opt="value"></span>
+    <table cellspacing="0" cellpadding="0" style="float: right">
+        <tr>
+
+            <td><label class="gray7">搜索条件:</label></td>
+
+            <td style="width: 210px;text-align: right">
+                <input class="easyui-searchbox" data-options="prompt:'名称'"
+                       type="keyword" style="width:200px" >
+            </td>
+
+            <td>
+                <span class="searchbtn" >&nbsp;</span>
+            </td>
+
+            <td>
+                <a action="add" class="opiconbg"><span><span class="icon-add icon-pl16">添加</span></span></a>
+            </td>
+        </tr>
+    </table>
+    <div class="clear"></div>
+</div>
+
+

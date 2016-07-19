@@ -1,0 +1,32 @@
+<div class="form-wrapper relative">
+<form>
+<input type="hidden" name="hyid" value="<%=hyid%>" >
+<input type="hidden" name="oldid" value="<%=oldid%>" >
+<table  cellpadding="2" cellspacing="1" class="form-table small">
+<tr>
+<td class="my-form-label">患高血压日期</td>
+<td><input class="my-form-input easyui-datebox" value="<%=hytime%>" name="hytime" data-options="required:true" ></td>
+<td class="my-form-label">是否用药</td>
+<td><input class="my-form-input easyui-combobox" value="<%=usemedicine%>" name="usemedicine" data-options="required:true,data:cj.getEnum('enu037'),panelHeight:'auto'" ></td>
+<td class="my-form-label">疗效及副作用</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=effect%>" name="effect" data-options="required:false,validType:{'maxLength':['100']}" ></td>
+</tr>
+
+<tr>
+<td class="my-form-label">最高收缩压</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=sbp%>" name="sbp" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label">最高舒张压</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=dbp%>" name="dbp" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label">高血压等级</td>
+<td><input class="my-form-input easyui-combobox" value="<%=hylevel%>" name="hylevel" data-options="required:true,data:cj.getEnum('enu051'),panelHeight:'auto'" ></td>
+</tr>
+
+<tr>
+<td class="my-form-label">风险等级</td>
+<td><input class="my-form-input easyui-combobox" value="<%=risklevel%>" name="risklevel" data-options="required:true,data:cj.getEnum('enu052'),panelHeight:'auto'" ></td>
+</table>
+</form>
+    <div class="position-rb">
+        <a action="destroy" title="删除" class="destroy">&nbsp;</a><a action="save" title="保存" class="save">&nbsp;</a>
+    </div>
+</div>

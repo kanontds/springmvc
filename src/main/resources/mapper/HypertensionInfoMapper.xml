@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.HypertensionInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.HypertensionInfo">
+    <id column="HYID" jdbcType="DECIMAL" property="hyid" />
+    <result column="HYTIME" jdbcType="TIMESTAMP" property="hytime" />
+    <result column="USEMEDICINE" jdbcType="VARCHAR" property="usemedicine" />
+    <result column="EFFECT" jdbcType="VARCHAR" property="effect" />
+    <result column="SBP" jdbcType="FLOAT" property="sbp" />
+    <result column="DBP" jdbcType="FLOAT" property="dbp" />
+    <result column="HYLEVEL" jdbcType="VARCHAR" property="hylevel" />
+    <result column="RISKLEVEL" jdbcType="VARCHAR" property="risklevel" />
+    <result column="OLDID" jdbcType="DECIMAL" property="oldid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HYID, HYTIME, USEMEDICINE, EFFECT, SBP, DBP, HYLEVEL, RISKLEVEL, OLDID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from HYPERTENSIONINFO
+    where HYID = #{hyid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from HYPERTENSIONINFO
+    where HYID = #{hyid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.HypertensionInfo">
+    insert into HYPERTENSIONINFO (HYID, HYTIME, USEMEDICINE, 
+      EFFECT, SBP, DBP, HYLEVEL, 
+      RISKLEVEL, OLDID)
+    values (#{hyid,jdbcType=DECIMAL}, #{hytime,jdbcType=TIMESTAMP}, #{usemedicine,jdbcType=VARCHAR}, 
+      #{effect,jdbcType=VARCHAR}, #{sbp,jdbcType=FLOAT}, #{dbp,jdbcType=FLOAT}, #{hylevel,jdbcType=VARCHAR}, 
+      #{risklevel,jdbcType=VARCHAR}, #{oldid,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.HypertensionInfo">
+    insert into HYPERTENSIONINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hyid != null">
+        HYID,
+      </if>
+      <if test="hytime != null">
+        HYTIME,
+      </if>
+      <if test="usemedicine != null">
+        USEMEDICINE,
+      </if>
+      <if test="effect != null">
+        EFFECT,
+      </if>
+      <if test="sbp != null">
+        SBP,
+      </if>
+      <if test="dbp != null">
+        DBP,
+      </if>
+      <if test="hylevel != null">
+        HYLEVEL,
+      </if>
+      <if test="risklevel != null">
+        RISKLEVEL,
+      </if>
+      <if test="oldid != null">
+        OLDID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hyid != null">
+        #{hyid,jdbcType=DECIMAL},
+      </if>
+      <if test="hytime != null">
+        #{hytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usemedicine != null">
+        #{usemedicine,jdbcType=VARCHAR},
+      </if>
+      <if test="effect != null">
+        #{effect,jdbcType=VARCHAR},
+      </if>
+      <if test="sbp != null">
+        #{sbp,jdbcType=FLOAT},
+      </if>
+      <if test="dbp != null">
+        #{dbp,jdbcType=FLOAT},
+      </if>
+      <if test="hylevel != null">
+        #{hylevel,jdbcType=VARCHAR},
+      </if>
+      <if test="risklevel != null">
+        #{risklevel,jdbcType=VARCHAR},
+      </if>
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.HypertensionInfo">
+    update HYPERTENSIONINFO
+    <set>
+      <if test="hytime != null">
+        HYTIME = #{hytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usemedicine != null">
+        USEMEDICINE = #{usemedicine,jdbcType=VARCHAR},
+      </if>
+      <if test="effect != null">
+        EFFECT = #{effect,jdbcType=VARCHAR},
+      </if>
+      <if test="sbp != null">
+        SBP = #{sbp,jdbcType=FLOAT},
+      </if>
+      <if test="dbp != null">
+        DBP = #{dbp,jdbcType=FLOAT},
+      </if>
+      <if test="hylevel != null">
+        HYLEVEL = #{hylevel,jdbcType=VARCHAR},
+      </if>
+      <if test="risklevel != null">
+        RISKLEVEL = #{risklevel,jdbcType=VARCHAR},
+      </if>
+      <if test="oldid != null">
+        OLDID = #{oldid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where HYID = #{hyid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.HypertensionInfo">
+    update HYPERTENSIONINFO
+    set HYTIME = #{hytime,jdbcType=TIMESTAMP},
+      USEMEDICINE = #{usemedicine,jdbcType=VARCHAR},
+      EFFECT = #{effect,jdbcType=VARCHAR},
+      SBP = #{sbp,jdbcType=FLOAT},
+      DBP = #{dbp,jdbcType=FLOAT},
+      HYLEVEL = #{hylevel,jdbcType=VARCHAR},
+      RISKLEVEL = #{risklevel,jdbcType=VARCHAR},
+      OLDID = #{oldid,jdbcType=DECIMAL}
+    where HYID = #{hyid,jdbcType=DECIMAL}
+  </update>
+</mapper>

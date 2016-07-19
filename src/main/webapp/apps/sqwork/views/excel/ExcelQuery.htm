@@ -1,0 +1,51 @@
+<table class="easyui-datagrid-noauto"
+         data-options="
+                       method:'get',
+                       border:false,
+                       fit:true,fitColumns:true,
+                       pageSize:15,
+                       pageList:cj.getDataGridAttr('pageList'),
+                       singleSelect:true,
+                       pagination:false">
+    <thead>
+      <tr>
+        <!--<th data-options="field:'ck',checkbox:true"></th>-->
+        <th data-options="field:'oldname',width:80,fixed:true,formatter:function(v,r,i)
+                          {
+                          var str='<div></div>';
+                          if(r.exestOldcardnum){
+                          str=$(str).append('<a style=&quot;color:red;&quot; ><span><span > '+v+'存在</span></span></a>');
+                          }else{
+                          str=$(str).append('<a style=&quot;color:green;&quot; ><span><span > '+v+'</span></span></a>');
+                          }
+                          return str.html();
+                          }"> 姓名</th>
+<th data-options="field:'oldremark',width:60">remark</th>
+<th data-options="field:'oldsex',width:60"> 性别</th>
+<th data-options="field:'disability',width:60">是否残疾 </th>
+<th data-options="field:'education',width:60">学历</th>
+<th data-options="field:'hometown',width:60">籍贯</th>
+<th data-options="field:'living',width:60">居住状态</th>
+<th data-options="field:'marriage',width:60">婚姻状况</th>
+<th data-options="field:'nation',width:60">民族</th>
+<th data-options="field:'oldaddress',width:60">地址</th>
+<th data-options="field:'oldcardnum',width:60">身份证</th>
+<th data-options="field:'oldheight',width:60">身高</th>
+<th data-options="field:'oldtelnum',width:60">电话</th>
+<th data-options="field:'oldtype',width:60">客户类型</th>
+<th data-options="field:'oldweight',width:60">体重</th>
+<th data-options="field:'political',width:60">团体</th>
+<th data-options="field:'subsidymoney',width:60">每月补助金额</th>
+<th data-options="field:'surplusmoney',width:60">剩余金额</th>
+          <th data-options="field:'ooo',width:100,align:'center',fixed:true,
+                            formatter:cj.button.RoundTextFormatter(['update','查看','update'])">操作
+        </th>
+      </tr>
+    </thead>
+</table>
+  <div tb="toolbar" class="my-toolbar">
+      <a  action="new" class="tool-add">上传</a>
+      <a  action="save" class="tool-add">保存</a>
+      <a  style="float:right;margin-right:20px;" class="easyui-linkbutton" iconCls="panel-tool-close"
+          plain="true" action="close" ></a>
+  </div>

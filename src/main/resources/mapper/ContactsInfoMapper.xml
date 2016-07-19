@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.ContactsInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.ContactsInfo">
+    <id column="CIID" jdbcType="DECIMAL" property="ciid" />
+    <result column="OLDID" jdbcType="DECIMAL" property="oldid" />
+    <result column="CONTACTNAME" jdbcType="VARCHAR" property="contactname" />
+    <result column="CONTACTTEL" jdbcType="VARCHAR" property="contacttel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CIID, OLDID, CONTACTNAME, CONTACTTEL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CONTACTSINFO
+    where CIID = #{ciid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from CONTACTSINFO
+    where CIID = #{ciid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.ContactsInfo">
+    insert into CONTACTSINFO (CIID, OLDID, CONTACTNAME, 
+      CONTACTTEL)
+    values (#{ciid,jdbcType=DECIMAL}, #{oldid,jdbcType=DECIMAL}, #{contactname,jdbcType=VARCHAR}, 
+      #{contacttel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.ContactsInfo">
+    insert into CONTACTSINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ciid != null">
+        CIID,
+      </if>
+      <if test="oldid != null">
+        OLDID,
+      </if>
+      <if test="contactname != null">
+        CONTACTNAME,
+      </if>
+      <if test="contacttel != null">
+        CONTACTTEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ciid != null">
+        #{ciid,jdbcType=DECIMAL},
+      </if>
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="contactname != null">
+        #{contactname,jdbcType=VARCHAR},
+      </if>
+      <if test="contacttel != null">
+        #{contacttel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.ContactsInfo">
+    update CONTACTSINFO
+    <set>
+      <if test="oldid != null">
+        OLDID = #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="contactname != null">
+        CONTACTNAME = #{contactname,jdbcType=VARCHAR},
+      </if>
+      <if test="contacttel != null">
+        CONTACTTEL = #{contacttel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CIID = #{ciid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.ContactsInfo">
+    update CONTACTSINFO
+    set OLDID = #{oldid,jdbcType=DECIMAL},
+      CONTACTNAME = #{contactname,jdbcType=VARCHAR},
+      CONTACTTEL = #{contacttel,jdbcType=VARCHAR}
+    where CIID = #{ciid,jdbcType=DECIMAL}
+  </update>
+</mapper>

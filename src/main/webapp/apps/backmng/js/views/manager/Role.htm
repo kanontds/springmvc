@@ -1,0 +1,44 @@
+<div class="easyui-layout"  data-options="fit:true">
+    <div data-options="region:'center'" data-options="fit:true">
+        <table class="easyui-datagrid-noauto"
+               data-options="
+               method:'post',
+               fit:true,
+               border:false,
+               rownumbers:true,
+               fitColumns:true,
+              pageSize:cj.getDataGridAttr('pageSize'),
+               pageList:cj.getDataGridAttr('pageList'),
+               singleSelect:false,
+               pagination:!true">
+            <thead>
+            <tr>
+                <th data-options="field:'ck',checkbox:true"></th>
+                <th data-options="field:'rolename',width:100,align:'right',formatter:function(v,r,i)
+            {
+                var str='<div></div>';
+                str=$(str).append('<a action=&quot;view&quot;>'+v+'</a>');
+                return str.html();
+            }">角色名称</th>
+                <th data-options="field:'roledesc',width:120,align:'center'">描述</th>
+                <th data-options="field:'createdate',width:100,align:'center',formatter:cj.dateFormatter(),hidden:true">创建时间</th>
+                <th data-options="field:'delete',width:100,align:'center',formatter:function(v,r,i)
+            {
+                var str='<div></div>';
+                str=$(str).append('<a action=&quot;delete&quot; class=&quot;opiconbg&quot;><span><span class=&quot;icon-del icon-pl16&quot;></span></span></a>');
+                str=$(str).append('<a action=&quot;grant&quot; class=&quot;opiconbg&quot;><span><span class=&quot;icon-add icon-pl16&quot;></span></span></a>');
+                return str.html();
+            }">操作</th>
+            </tr>
+            </thead>
+        </table>
+
+        <div tb>
+            <label class="gray7">搜索条件:</label>
+            <input class="easyui-searchbox" data-options="prompt:'角色名'"
+                   type="keyword" style="width:200px" >
+            <a opt="addrole" class="opiconbg"><span><span class="icon-user icon-pl16">新增角色</span></span></a>
+        </div>
+
+    </div>
+</div>

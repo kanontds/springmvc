@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.LogInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.LogInfo">
+    <id column="LOGID" jdbcType="DECIMAL" property="logid" />
+    <result column="USERID" jdbcType="DECIMAL" property="userid" />
+    <result column="LOGCONTENT" jdbcType="VARCHAR" property="logcontent" />
+    <result column="LOGTIME" jdbcType="TIMESTAMP" property="logtime" />
+    <result column="TB" jdbcType="VARCHAR" property="tb" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOGID, USERID, LOGCONTENT, LOGTIME, TB
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from LOGINFO
+    where LOGID = #{logid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from LOGINFO
+    where LOGID = #{logid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.LogInfo">
+    insert into LOGINFO (LOGID, USERID, LOGCONTENT, 
+      LOGTIME, TB)
+    values (#{logid,jdbcType=DECIMAL}, #{userid,jdbcType=DECIMAL}, #{logcontent,jdbcType=VARCHAR}, 
+      #{logtime,jdbcType=TIMESTAMP}, #{tb,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.LogInfo">
+    insert into LOGINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="logid != null">
+        LOGID,
+      </if>
+      <if test="userid != null">
+        USERID,
+      </if>
+      <if test="logcontent != null">
+        LOGCONTENT,
+      </if>
+      <if test="logtime != null">
+        LOGTIME,
+      </if>
+      <if test="tb != null">
+        TB,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="logid != null">
+        #{logid,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="logcontent != null">
+        #{logcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="logtime != null">
+        #{logtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tb != null">
+        #{tb,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.LogInfo">
+    update LOGINFO
+    <set>
+      <if test="userid != null">
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="logcontent != null">
+        LOGCONTENT = #{logcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="logtime != null">
+        LOGTIME = #{logtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tb != null">
+        TB = #{tb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LOGID = #{logid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.LogInfo">
+    update LOGINFO
+    set USERID = #{userid,jdbcType=DECIMAL},
+      LOGCONTENT = #{logcontent,jdbcType=VARCHAR},
+      LOGTIME = #{logtime,jdbcType=TIMESTAMP},
+      TB = #{tb,jdbcType=VARCHAR}
+    where LOGID = #{logid,jdbcType=DECIMAL}
+  </update>
+</mapper>

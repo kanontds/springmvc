@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.dao.MoneyInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.MoneyInfo">
+    <id column="MID" jdbcType="DECIMAL" property="mid" />
+    <result column="WID" jdbcType="VARCHAR" property="wid" />
+    <result column="MTIME" jdbcType="TIMESTAMP" property="mtime" />
+    <result column="MONEY" jdbcType="FLOAT" property="money" />
+    <result column="OLDID" jdbcType="DECIMAL" property="oldid" />
+    <result column="MTYPE" jdbcType="VARCHAR" property="mtype" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MID, WID, MTIME, MONEY, OLDID, MTYPE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MONEYINFO
+    where MID = #{mid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from MONEYINFO
+    where MID = #{mid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.MoneyInfo">
+    insert into MONEYINFO (MID, WID, MTIME, 
+      MONEY, OLDID, MTYPE)
+    values (#{mid,jdbcType=DECIMAL}, #{wid,jdbcType=VARCHAR}, #{mtime,jdbcType=TIMESTAMP}, 
+      #{money,jdbcType=FLOAT}, #{oldid,jdbcType=DECIMAL}, #{mtype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.MoneyInfo">
+    insert into MONEYINFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        MID,
+      </if>
+      <if test="wid != null">
+        WID,
+      </if>
+      <if test="mtime != null">
+        MTIME,
+      </if>
+      <if test="money != null">
+        MONEY,
+      </if>
+      <if test="oldid != null">
+        OLDID,
+      </if>
+      <if test="mtype != null">
+        MTYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        #{mid,jdbcType=DECIMAL},
+      </if>
+      <if test="wid != null">
+        #{wid,jdbcType=VARCHAR},
+      </if>
+      <if test="mtime != null">
+        #{mtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=FLOAT},
+      </if>
+      <if test="oldid != null">
+        #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="mtype != null">
+        #{mtype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.MoneyInfo">
+    update MONEYINFO
+    <set>
+      <if test="wid != null">
+        WID = #{wid,jdbcType=VARCHAR},
+      </if>
+      <if test="mtime != null">
+        MTIME = #{mtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="money != null">
+        MONEY = #{money,jdbcType=FLOAT},
+      </if>
+      <if test="oldid != null">
+        OLDID = #{oldid,jdbcType=DECIMAL},
+      </if>
+      <if test="mtype != null">
+        MTYPE = #{mtype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where MID = #{mid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.MoneyInfo">
+    update MONEYINFO
+    set WID = #{wid,jdbcType=VARCHAR},
+      MTIME = #{mtime,jdbcType=TIMESTAMP},
+      MONEY = #{money,jdbcType=FLOAT},
+      OLDID = #{oldid,jdbcType=DECIMAL},
+      MTYPE = #{mtype,jdbcType=VARCHAR}
+    where MID = #{mid,jdbcType=DECIMAL}
+  </update>
+</mapper>

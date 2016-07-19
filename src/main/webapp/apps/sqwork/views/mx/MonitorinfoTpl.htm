@@ -1,0 +1,19 @@
+<div class="form-wrapper relative">
+<form>
+<input type="hidden" name="mid" value="<%=mid%>" >
+<input type="hidden" name="oldid" value="<%=oldid%>" >
+<table  cellpadding="2" cellspacing="1" class="form-table small">
+<tr>
+<td class="my-form-label">数据名称</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=mname%>" name="mname" data-options="required:false,validType:{'maxLength':['25']}" ></td>
+<td class="my-form-label">数值</td>
+<td><input class="my-form-input easyui-validatebox" value="<%=num%>" name="num" data-options="required:true,validType:{'isNumeric':[],'maxLength':['22']}" ></td>
+<td class="my-form-label">生成时间</td>
+<td><input class="my-form-input easyui-datebox" value="<%=mtime%>" name="mtime" data-options="required:true" ></td>
+</tr>
+</table>
+</form>
+    <div class="position-rb">
+        <a action="destroy" title="删除" class="destroy">&nbsp;</a><a action="save" title="保存" class="save">&nbsp;</a>
+    </div>
+</div>
