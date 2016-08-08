@@ -1,6 +1,7 @@
 package cn.springmvc.service;
 
 import cn.springmvc.model.Demo;
+import cn.springmvc.unit.PageHelper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,4 +17,5 @@ public interface DemoService {
 	void updateDemo(Demo demo);
 	void deleteDemo(int id);
 	Integer getDemoCount();
+	PageHelper.Page<Demo> demoSelectPage(int pageNumber,int pageSize);
 }

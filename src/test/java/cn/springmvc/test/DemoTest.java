@@ -2,6 +2,7 @@ package cn.springmvc.test;
 
 import cn.springmvc.model.Demo;
 import cn.springmvc.service.DemoService;
+import cn.springmvc.service.OldInfoService;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -18,6 +19,7 @@ import java.util.UUID;
 public class DemoTest {
 
 private DemoService demoService;
+	private OldInfoService oldInfoService;
 
 	private Random ran = new Random();
 	private int delta = 0x5fa5 - 0x4e00 + 1;
@@ -38,6 +40,8 @@ private DemoService demoService;
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:conf/spring.xml"
 				,"classpath:conf/spring-mybatis.xml");
 		demoService = (DemoService) context.getBean("demoServiceImpl");
+		oldInfoService = (OldInfoService) context.getBean("oldInfoServiceImpl");
+
 	}
 
 	@Test
@@ -46,6 +50,19 @@ private DemoService demoService;
 		demo.setContent("hello");
 		demo.setPlace("北国"+getHan());
 		System.out.println(demoService.insertDemo(demo));
+	}
+
+	@Test
+	public void selectOldinfoPage(){
+
+		System.out.println("test1111+" + oldInfoService.findSysLoginLog(2,1).getPageSize());
+	}
+
+	@Test
+	public void demoSelectPage(){
+		System.out.println("demopagesize:" + demoService.demoSelectPage(1,5).toString());
+
+
 	}
 
 	@Test
@@ -85,5 +102,10 @@ private DemoService demoService;
 			demo.setMytext7(UUID.randomUUID().toString());
 		System.out.println(demoService.insertDemo(demo));
 		}
+	}
+
+	@Test
+	public  void test4j(){
+		System.out.println("shiwu");
 	}
 }

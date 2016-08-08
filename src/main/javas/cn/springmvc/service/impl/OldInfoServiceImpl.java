@@ -6,6 +6,7 @@ import cn.springmvc.model.Demo;
 import cn.springmvc.model.OldInfo;
 import cn.springmvc.service.DemoService;
 import cn.springmvc.service.OldInfoService;
+import cn.springmvc.unit.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,13 @@ public class OldInfoServiceImpl implements OldInfoService {
 	@Override
 	public void updateOldinfo(OldInfo oldInfo) {
 		oldInfoMapper.updateByPrimaryKey(oldInfo);
+	}
+
+	@Override
+	public PageHelper.Page<OldInfo> findSysLoginLog(int pageNumber, int pageSize) {
+		PageHelper.startPage(pageNumber,pageSize);
+		oldInfoMapper.selectOldinfo(pageNumber,pageSize);
+		return PageHelper.endPage();
 	}
 
 //	@Override

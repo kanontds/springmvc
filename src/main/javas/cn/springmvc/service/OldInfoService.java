@@ -2,6 +2,7 @@ package cn.springmvc.service;
 
 import cn.springmvc.model.Demo;
 import cn.springmvc.model.OldInfo;
+import cn.springmvc.unit.PageHelper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,4 +21,6 @@ public interface OldInfoService {
 
 	void insertOldinfo(OldInfo oldInfo);
 	void updateOldinfo(OldInfo oldInfo);
+
+	PageHelper.Page<OldInfo> findSysLoginLog(int pageNumber,int pageSize);
 }

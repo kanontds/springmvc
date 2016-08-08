@@ -79,7 +79,31 @@
           p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
 
     <!-- 对数据源进行事务管理 -->
+
+
+
+
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
           p:dataSource-ref="dataSource"/>
+
+
+
+    <!-- 通知 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 传播行为 -->
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 配置aop  -->
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(public * cn.springmvc.service.impl.*.*(..))"/>
+    </aop:config>
 </beans>

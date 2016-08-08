@@ -3,6 +3,7 @@ package cn.springmvc.service.impl;
 import cn.springmvc.dao.DemoDAO;
 import cn.springmvc.model.Demo;
 import cn.springmvc.service.DemoService;
+import cn.springmvc.unit.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,5 +48,12 @@ public class DemoServiceImpl implements DemoService {
 	@Override
 	public Integer getDemoCount() {
 		return demoDAO.getDemoCount();
+	}
+
+	@Override
+	public PageHelper.Page<Demo> demoSelectPage(int pageNumber, int pageSize) {
+		PageHelper.startPage(pageNumber,pageSize);
+		demoDAO.selectDemos(pageNumber,pageSize);
+		return PageHelper.endPage();
 	}
 }

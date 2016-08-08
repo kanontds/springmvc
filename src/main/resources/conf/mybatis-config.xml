@@ -8,7 +8,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <typeAlias alias="Demo" type="cn.springmvc.model.Demo"/>
     </typeAliases>
 
+    <plugins>
+        <plugin interceptor="cn.springmvc.unit.PageHelper">
+        </plugin>
+    </plugins>
+
     <!-- 映射map -->
     <mappers>
     </mappers>
+
+
 </configuration>
